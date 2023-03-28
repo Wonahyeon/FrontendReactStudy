@@ -8,3 +8,9 @@ div.logo{
   height: 500px;
   background: url("../images/logo.png");
 }
+
+div.tvnlogo{
+  width: 497px;
+  height: 200px;
+  background: url("../images/tvn.svg");
+}
