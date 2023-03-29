@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>집에서 복습하기</title>
+  <style>
+    span{
+      background-color: yellow;
+    }
+    div{
+      padding-top: 100px;
+    }
+    a{
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>HTML</h1>
+<ul>
+  <li>인라인 요소
+    <ul>
+      <li>span
+        <a href="#span">더보기</a>
+      </li>
+      <li>image
+        <a href="#img">더보기</a>
+      </li>
+      <li>anchor
+        <a href="#a">더보기</a>
+      </li>
+    </ul>
+  </li>
+  <br>
+  <br>
+  <li>블록 요소
+    <ul>
+      <li>division
+        <a href="#div">더보기</a>
+      </li>
+      <li>heading
+        <a href="#h">더보기</a>
+      </li>
+      <li>paragraph
+        <a href="#p">더보기</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div>
+  <h2 id="span">span</h2>
+  <p>텍스트 구분을 위해 사용(주로 <span>글자</span>에 스타일 적용)</p>
+  <br>
+  <h2 id="img">image</h2>
+  <p>이미지 삽입</p>
+  <p> placeholder.com 통해 <span>샘플 이미지</span> 삽입 가능</p>
+  <img src="https://via.placeholder.com/50x50.jpeg" alt="샘플이미지">
+  <p>src="https://via.placeholder.com/50x50.jpeg"로 사이즈와 확장자 지정 가능</p>
+  <br>
+  <h2 id="a">anchor</h2>
+  <p>닻, 페이지 이동하는 <span>하이퍼링크</span>를 지정</p>
+  <p>타켓(링크된 페이지 표시 방식)</p>
+</div>
+
+<div>
+  <h2 id="div">division</h2>
+  <p>특별한 의미없음</p>
+  <p>요소들을 묶어 하나의 <span>영역</span>으로 구분</p>
+  <br>
+  <h2 id="h">heading</h2>
+  <p>헤드라인(제목)</p>
+  <p>1~6까지 숫자가 <span>작을수록</span> 중요(크기가 커짐)</p>
+  <br>
+  <h2 id="p">paragraph</h2>
+  <p>문단, 단락</p>
+</div>
+
+</body>
+</html>
