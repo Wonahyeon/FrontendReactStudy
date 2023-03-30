@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .placeholder-hidden:focus::placeholder{
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#input">Input</a></li>
+      <li><a href="#table">Table</a></li>
+      <li><a href="#attribute">Attribute</a></li>
+    </ul>
+  </nav>
+<br><br><br><br>
+  <section>
+    <h2>태그 설명</h2>
+    <article id="input">
+      <h3>Input</h3>
+      <p>type 속성에는 text뿐만 아니라 checkbox, lable, radio button, 그 외 태그들이 존재</p>
+    </article>
+    <input type="text" placeholder="이름을 입력하세요" class="placeholder-hidden"><br>
+    좋아하는 과일: 
+    <label>
+      <input type="checkbox" checked>Apple
+    </label>
+    <label>
+      <input type="checkbox">Banana
+    </label>
+    <label>
+      <input type="checkbox">Grapefruit
+    </label>
+    <br>
+    좋아하는 색깔:
+    <label>
+      <input type="radio" name="favcolor" checked>Red
+    </label>
+    <label>
+      <input type="radio" name="favcolor">Green
+    </label>
+    <label>
+      <input type="radio" name="favcolor">Blue
+    </label>
+    <label">
+      <input type="radio" name="favcolor">Purple
+    </label>
+    
+    TODO: table태그부터 정리해야함
+
+    <article id="table">
+      <h3>Table</h3>
+      <p>tr : 행<br>th : 제목<br>td : 데이터<br>
+        셀 병합: rowspan, colspan 사용</p>
+    </article>
+    <article id="attribute">
+      <h3>Attribute</h3>
+      <p>HTML 전역 속성은 title로 요소의 정보나 설명을 저장<br>
+        style 속성은 요소에 적용할 스타일(CSS)을 지정<br>
+        class 속성은 요소를 지칭하는 중복 가능한 이름을,<br>
+        id 속성은 요소를 지칭하는 고유한 이름을 저장
+      </p>
+    </article>
+  </section>
+<br><br><br>
+  <footer>
+    <ul>
+      <li><a href="../04_html/9_semantic.txt">시맨틱 태그</a></li>
+      <li><a href="./230329.html">지난 정리</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
