@@ -29,6 +29,11 @@
     [data-fruit-name] {
       color: red;
     }
+    /* input 태그는 인라인 요소, 수평으로 쌓임 */
+    /* input 태그들을 수직으로 쌓으려면 display 속성으로 block 요소를 주면 됨 */
+    input {
+      display: block;
+    }
 
 
   </style>
@@ -40,6 +45,10 @@
   <span data-fruit-name="apple">사과</span>
 </body>
 </html>
+
+<!-- 인라인 요소는 수평으로 쌓이고 크기 지정이 따로 불가함
+  인라인 요소의 크키는 cotent에 따르므로 작성하지 않으면 보이지 않음
+-->
 
 <!-- 참고 자료:
   https://code.tutsplus.com/ko/tutorials/the-30-css-selectors-you-must-memorize--net-16048
