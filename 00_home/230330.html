@@ -9,6 +9,14 @@
     .placeholder-hidden:focus::placeholder{
       color: transparent;
     }
+    table{
+      border-collapse: collapse;
+    }
+    th,td{
+      /* 선(테두리): 두께 종류 색상 */
+      border: 1px solid black;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
@@ -52,7 +60,7 @@
     <label>
       <input type="radio" name="favcolor">Blue
     </label>
-    <label">
+    <label>
       <input type="radio" name="favcolor">Purple
     </label>
 
@@ -62,14 +70,39 @@
     <article id="table">
       <h3>Table</h3>
       <p>tr : 행<br>th : 제목<br>td : 데이터<br>
-        셀 병합: rowspan, colspan 사용</p>
+        <table>
+          <tr>
+            <td>A</td><td>B</td>
+          </tr>
+          <tr>
+            <td>C</td><td>D</td>
+          </tr>
+        </table>
+        셀 병합: rowspan, colspan 사용<br>
+        <table>
+          <tr>
+            <td>1</td><td colspan="2">2</td><td>4</td>
+          </tr>
+          <tr>
+            <td rowspan="3">5</td><td>6</td><td>7</td><td>8</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td rowspan="2" colspan="2">11</td>
+          </tr>
+          <tr>
+            <td>14</td>
+          </tr>
+        </table>
+      </p>
     </article>
     <article id="attribute">
       <h3>Attribute</h3>
       <p>HTML 전역 속성은 title로 요소의 정보나 설명을 저장<br>
         style 속성은 요소에 적용할 스타일(CSS)을 지정<br>
         class 속성은 요소를 지칭하는 중복 가능한 이름을,<br>
-        id 속성은 요소를 지칭하는 고유한 이름을 저장
+        id 속성은 요소를 지칭하는 고유한 이름을 저장<br>
+        
       </p>
     </article>
   </section>
