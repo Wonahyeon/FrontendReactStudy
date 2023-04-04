@@ -101,6 +101,80 @@
       /* padding: 10px 20px 30px 40px; */
       padding-left: 20px;
     }
+
+    .container-3 .item {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+
+    .container-3 .item:first-child {
+      /* padding과 같이 요소의 크기가 커짐 */
+      /* border: 크기 종류 색상; */
+      /* 실선, 파선 주로 사용 */
+      
+      /* 실선 */
+      /* border: 10px solid; */
+      /* 지정된 색상값이 없으면 요소의 글꼴 색상이 적용(보통 명확하게 지정해서 씀) */
+      border: 10px solid green;
+    }
+    .container-3 .item:nth-child(2) {
+      /* 파선 */
+      /* border: 10px dashed #ff0000; */
+      border: 10px dashed rgb(255,0,0);
+    }
+    .container-3 .item:last-child {
+      /* 점선 */
+      /* border: 10px dotted #0000ff; */
+      /* border: 10px dotted rgb(0,0,255); */
+      /* alpha(불투명도): 1에 가까울수록 불투명, 0에 가까울수록 투명 */
+      border: 10px dotted rgba(0,0,255,0.5);
+    }
+
+    
+    .container-4 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      margin: 20px;
+      /* border-radius: 30px; */
+      /* 2개: 왼쪽 대각선, 오른쪽 대각선 */
+      /* border-radius: 0 20px; */
+      /* 3개: 왼쪽 상단, 오른쪽 대각선, 오른쪽 하단 */
+      /* border-radius: 0 20px 40px; */
+      /* 4개: 왼쪽 상단부터 시계방향 */
+      /* border-radius: 0 20px 40px 60px; */
+
+      /* 원 만들기 (radius는 반지름)*/
+      /* 반지름을 요소 길이의 반으로 하면 원이 됨 */
+      /* border-radius: 50px */
+      /* 요소의 길이는 변할 수 있으므로 상대적인 길이를 주는 % 활용 */
+      border-radius: 50%;
+    }
+
+    .container-5 {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+    /* 클래스 두 개인 요소 선택 */
+    .container-5.compare {
+      /* border로 인해 요소의 크기 10px 증가 */
+      border: 5px solid red;
+      /* padding으로 인해 요소의 크기 40px 증가 */
+      padding: 20px;
+      /* 요소의 크기는 150 x 150 으로 늘어남 
+        만약 요소의 가로/세로 길이를 100px을 유지하고 싶다면 늘어난 50px만큼 빼줘야 함(번거로움)
+      */
+
+      /* 가로/세로 계산에 padding과 border 값도 포함해서 자동으로 content 영역이 줄어듦 */
+      /* 요소에 padding과 border 값이 추가될 때 지정한 크기보다 커지는 것을 방지 */
+      /* 모든 요소에 border-box 주고 시작하면 편함(상속 안되는 속성이라 inherit 해줘야함) */
+      box-sizing: border-box;
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -145,5 +219,80 @@
     <div class="item"></div>
     <div class="item"></div>
   </div>
+  
+  <h4>3. border 실습</h4>
+  <div class="container-3">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+
+  <h4>4. border-radius 실습</h4>
+  <div class="container-4"></div>
+
+  <h4>5. box-sizing 실습</h4>
+  <!-- 클래스 이름 두 개 명시 가능 -->
+  <div class="container-5 compare">hello</div>
+  <div class="container-5">hello</div>
 </body>
 </html>
+<!-- (정리) Quiz
+  Q1: width와 height 속성의 역할은?
+  A1: 요소의 가로/세로 길이
+
+  Q2: width와 height 속성의 기본값은?
+  A2: auto(블록/인라인 요소에 따라서 auto 값의 특성이 달라진다는 것이 중요)
+
+  Q3: max-width와 max-height 속성의 기본값은?
+  A3: none (제한이 없음)
+
+  Q4: min-width와 min-height 속성의 기본값은?
+  A4: 0 (제한이 없음)
+
+  Q5: em 단위의 기준은?
+  A5: 요소 글꼴의 크기
+
+  Q6: 0px과 0vw 중 더 큰 값은?
+  A6: 모두 같은 값 (0em,0rem,0px,0vw = 0)
+
+  Q7: margin 속성의 역할은?
+  A7: 외부 여백
+
+  Q8: margin: 40px 30px 20px;
+      위 코드에서 30px은 어느 방향을 의미하는가?
+  A8: 상중하에서 중 => left right
+  
+  Q9: margin: 20px 10px;
+      위 코드에서 20px은 어느 방향을 의미하는가?
+  A9: 상하 => top bottom
+
+  Q10: padding 속성의 역할은?
+  A10: 내부 여백
+
+  Q11: margin: 20px 10px 40px 30px;
+      위 코드에서 30px은 어느 방향을 의미하는가?
+  A11: 좌(왼쪽) => left
+  
+  Q12: padding 속성의 특징은?
+  A12: 여백이 추가된 만큼 요소의 크기가 커짐
+
+  Q13: border 속성의 특징은?
+  A13: 테두리 선이 들어가면 요소의 크기가 커짐
+
+  Q14: 두께 2px, 종류 실선, 색상 빨강의 테두리 선을 코드로 작성하시오!
+  A14: border: 2px solid red;
+
+  Q15: 요소의 모서리를 둥글게 깎기 위한 속성은?
+  A15: border-radius
+
+  Q16: width: 100px; padding: 20px; border: 1px solid red;
+      위 코드가 지정된 요소의 실제 가로 너비는?
+  A16: 142 px
+
+  Q17: width: 100px; padding: 20px; border: 1px solid red; box-sizing: border-box;
+      위 코드가 지정된 요소의 실제 가로 너비는?
+  A17: 100 px
+
+  Q18: box-sizing 속성의 기본값은?
+  A18: content-box
+-->
