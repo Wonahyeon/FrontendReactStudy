@@ -17,7 +17,8 @@
     }
 
     /* 강제 상속: 자동으로 상속되지 않는 CSS 속성을 강제로 상속하는 방법 */
-    /* inherit: 부모의 값을 물려받음 => 속성의 값 */
+    /* inherit: 부모의 값을 물려받음 => 물려줄 속성에 대한 값으로 사용 */
+
     .parent {
       width: 300px;
       height: 400px;
@@ -30,7 +31,7 @@
       height: inherit;
       background-color: inherit;
 
-      /* 뷰포트 기준으로 배치 */
+      /* 뷰포트 기준으로 배치 position fixed*/
       position: fixed;
       top: 100px;
       right: 10px;
