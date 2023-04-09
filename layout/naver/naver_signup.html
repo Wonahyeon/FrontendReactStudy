@@ -35,24 +35,24 @@
 
       <label for="pwd">비밀번호</label>
       <div class="input-group-row">
-        <input type="text" id="pwd">
+        <input type="text" id="pwd" class="click">
         <div class="pwd"></div>
       </div>
 
       <label for="repwd">비밀번호 재확인</label>
       <div class="input-group-row">
-        <input type="text" id="repwd">
+        <input type="text" id="repwd" class="click">
         <div class="repwd"></div>
       </div>
 
       <label for="name">이름</label>
       <div class="input-group-row">
-        <input type="text" id="name">
+        <input type="text" id="name" class="click">
       </div>
 
       <label for="gender">성별</label>
       <div class="input-group-row">
-        <select id="gender">
+        <select id="gender" class="click">
           <option value selected>성별</option>
           <option value="M">남자</option>
           <option value="W">여자</option>
@@ -62,8 +62,8 @@
 
       <label for="birthday">생년월일</label>
       <div class="input-group-row bir-wrap">
-        <input type="text" id="birthday" placeholder="년(4자)" maxlength="4">
-        <select class="bir-mm">
+        <input type="text" id="birthday" placeholder="년(4자)" maxlength="4" class="click">
+        <select class="bir-mm click">
           <option value selected>월</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -78,28 +78,28 @@
           <option value="11">11</option>
           <option value="12">12</option>
         </select>
-        <input type="text" placeholder="일">
+        <input type="text" placeholder="일" class="click">
       </div>
 
 
       <label for="email">본인 확인 이메일<span class="choice">(선택)</span></label>
       <div class="input-group-row">
-        <input type="text" id="email" placeholder="선택입력">
+        <input type="text" id="email" placeholder="선택입력" class="click">
       </div>
 
       <label for="phone">휴대전화</label>
       <div class="input-group-row">
-        <select>
+        <select class="click">
           <option value selected>대한민국 +82</option>
           <option value="U">미국 +1</option>
           <option value="J">일본 +81</option>
           <option value="C">중국 +86</option>
         </select>
         <div class="input-phone">
-          <input type="text" id="phone" placeholder="전화번호 입력">
+          <input type="text" id="phone" placeholder="전화번호 입력" class="click">
           <input type="button" value="인증번호 받기" class="btn-pin">
         </div>
-        <input type="text" id="pin" placeholder="인증번호 입력하세요">  
+        <input type="text" id="pin" placeholder="인증번호 입력하세요" class="click" disabled>  
       </div>
       
       <input type="button" value="가입하기" class="btn-signup">
