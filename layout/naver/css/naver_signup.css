@@ -247,3 +247,10 @@ footer .bottom .copyright > * {
 footer .bottom .copyright .u_cri {
   padding-left: 1px;
 }
+
+/* TODO
+footer bt-menu wrap 안 됨
+viewport 사이즈 변경 시 container 크기 고정 안 됨,
+  header logo 위치 고정 안 됨
+select dropdown 사이즈 변경
+repwd-img 변경 */
