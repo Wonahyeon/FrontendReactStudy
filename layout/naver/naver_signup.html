@@ -28,36 +28,26 @@
     <div class="section-input">
       <label for="id">아이디</label>
       <div class="input-group-row">
-        <input type="text" id="id">
+        <input type="text" id="id" maxlength="20">
         <span>@naver.com</span>
       </div>
       <!-- 이 안에 작업하세요. -->
 
       <label for="pwd">비밀번호</label>
       <div class="input-group-row">
-        <input type="text" id="pwd" class="click">
+        <input type="password" id="pwd" class="click">
         <div class="pwd"></div>
       </div>
 
       <label for="repwd">비밀번호 재확인</label>
       <div class="input-group-row">
-        <input type="text" id="repwd" class="click">
+        <input type="password" id="repwd" class="click">
         <div class="repwd"></div>
       </div>
 
       <label for="name">이름</label>
-      <div class="input-group-row">
+      <div class="input-group-row name"> 
         <input type="text" id="name" class="click">
-      </div>
-
-      <label for="gender">성별</label>
-      <div class="input-group-row">
-        <select id="gender" class="click">
-          <option value selected>성별</option>
-          <option value="M">남자</option>
-          <option value="W">여자</option>
-          <option value="U">선택 안함</option>
-        </select>
       </div>
 
       <label for="birthday">생년월일</label>
@@ -78,16 +68,25 @@
           <option value="11">11</option>
           <option value="12">12</option>
         </select>
-        <input type="text" placeholder="일" class="click">
+        <input type="text" placeholder="일" maxlength="2" class="click">
       </div>
 
+      <label for="gender">성별</label>
+      <div class="input-group-row">
+        <select id="gender" class="click">
+          <option value selected>성별</option>
+          <option value="M">남자</option>
+          <option value="W">여자</option>
+          <option value="U">선택 안함</option>
+        </select>
+      </div>
 
       <label for="email">본인 확인 이메일<span class="choice">(선택)</span></label>
       <div class="input-group-row">
-        <input type="text" id="email" placeholder="선택입력" class="click">
+        <input type="email" id="email" placeholder="선택입력" class="click">
       </div>
 
-      <label for="phone">휴대전화</label>
+      <label class="phone" for="phone">휴대전화</label>
       <div class="input-group-row">
         <select class="click">
           <option value selected>대한민국 +82</option>
@@ -119,8 +118,7 @@
         </ul>
       </div>
       <div class="copyright">
-        <span class="u_cri">©</span>
-        <a href="https://www.navercorp.com/" target="_blank">NAVER Corp.</a>
+        <a href="https://www.navercorp.com/" target="_blank">&copy;  NAVER Corp.</a>
       </div>
     </div>
   </footer>
