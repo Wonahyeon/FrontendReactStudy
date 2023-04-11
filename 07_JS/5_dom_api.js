@@ -17,7 +17,7 @@ boxEl.addEventListener('click',function () {
   boxEl.classList.add('active');
 
   // classList 속성 사용 - 확인하기
-  let hasActive = boxEl.classList.contains('active'); // 요소에 active라는 클래스 값이 있는지 확인
+  let hasActive = boxEl.classList.contains('active'); // 요소에 active라는 클래스 값이 있는지 확인 => 있으면 true, 없으면 false
   console.log(hasActive);
 
   // classList 속성 사용 - 제거하기
