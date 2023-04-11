@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네이버 : 회원가입</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="stylesheet" href="./css/naver_signup.css">
+</head>
+<body>
+  <!-- 헤더 영역 -->
+  <header>
+    <!-- 가운데 정렬을 위한 inner div -->
+    <div class="top">
+      <!-- h1(강조의 의미) 또는 div를 사용해도 상관없음 -->
+      <h1 class="logo">
+        <a href="https://www.naver.com/">
+          <img src="https://ssl.pstatic.net/static/nid/join/m_logo_naver.png" alt="네이버 로고 이미지">
+        </a>
+      </h1>
+    </div>
+  </header>
+
+  <!-- 메인 영역 -->
+  <main id="container">
+    <!-- 가운데 정렬을 위한 inner div -->
+    <div class="section-input">
+      <label for="id">아이디</label>
+      <div class="input-group-row">
+        <input type="text" id="id">
+        <span>@naver.com</span>
+      </div>
+      <!-- 이 안에 작업하세요. -->
+
+      <label for="pwd">비밀번호</label>
+      <div class="input-group-row">
+        <input type="text" id="pwd" class="click">
+        <div class="pwd"></div>
+      </div>
+
+      <label for="repwd">비밀번호 재확인</label>
+      <div class="input-group-row">
+        <input type="text" id="repwd" class="click">
+        <div class="repwd"></div>
+      </div>
+
+      <label class="label-name" for="name">이름</label>
+      <div class="input-group-row">
+        <input type="text" id="name" class="click">
+      </div>
+
+      <label for="birthday">생년월일</label>
+      <div class="input-group-row bir-wrap">
+        <input type="text" id="birthday" placeholder="년(4자)" maxlength="4" class="click">
+        <select class="bir-mm click">
+          <option value selected>월</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <input type="text" placeholder="일" maxlength="2" class="click">
+      </div>
+
+      <label for="gender">성별</label>
+      <div class="input-group-row">
+        <select id="gender" class="click">
+          <option value selected>성별</option>
+          <option value="M">남자</option>
+          <option value="W">여자</option>
+          <option value="U">선택 안함</option>
+        </select>
+      </div>
+
+      <label for="email">본인 확인 이메일<span class="choice">(선택)</span></label>
+      <div class="input-group-row">
+        <input type="text" id="email" placeholder="선택입력" class="click">
+      </div>
+
+      <label for="phone">휴대전화</label>
+      <div class="input-group-row">
+        <select class="click">
+          <option value selected>대한민국 +82</option>
+          <option value="U">미국 +1</option>
+          <option value="J">일본 +81</option>
+          <option value="C">중국 +86</option>
+        </select>
+        <div class="input-phone">
+          <input type="text" id="phone" placeholder="전화번호 입력" class="click">
+          <input type="button" value="인증번호 받기" class="btn-pin">
+        </div>
+        <input type="text" id="pin" placeholder="인증번호 입력하세요" class="click" disabled>  
+      </div>
+      
+      <input type="button" value="가입하기" class="btn-signup">
+    </div>
+  </main>
+  
+  <!-- 푸터 영역 -->
+  <footer>
+    <!-- 가운데 정렬을 위한 inner div -->
+    <div class="bottom">
+      <div class="bt-menu">
+        <ul>
+          <li><a href="https://policy.naver.com/rules/service.html">이용약관</a></li>
+          <li><a href="https://policy.naver.com/policy/privacy.html">개인정보처리방침</a></li>
+          <li><a href="https://policy.naver.com/rules/disclaimer.html">책임의 한계와 법적고지</a></li>
+          <li><a href="https://help.naver.com/service/5640/category/bookmark?lang=ko" target="_blank">회원정보 고객센터</a></li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <span class="u_cri">©</span>
+        <a href="https://www.navercorp.com/" target="_blank">NAVER Corp.</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
