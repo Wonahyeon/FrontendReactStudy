@@ -14,10 +14,17 @@ ul {
   list-style: none;
 }
 
+body {
+  display: flex;
+  flex: 1;
+}
+
 #container {
   width: 1200px;
+  min-width: 600px;
   margin: 0 auto;
 }
+
 
 /* 헤더 영역 */
 header {
@@ -27,7 +34,6 @@ header {
   display: flex;
   justify-content: space-between;
 
-  /* 영역 확인용 */
   background-color: #07c;
 }
 
@@ -38,11 +44,16 @@ header {
 
   padding-left: 20px;
   line-height: 100px;
+  
   /* 영역 확인용 */
   /* background-color: indigo; */
 }
+#logo a {
+  position: relative;
+}
 
 #logo h1 {
+  position: fixed;
   font-weight: 700;
   font-size: 40px;
   color: #fff;
