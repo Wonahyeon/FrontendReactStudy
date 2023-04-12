@@ -1,4 +1,0 @@
-home
-clone
-push
-more push
