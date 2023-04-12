@@ -47,14 +47,13 @@ function nextSlide() {
 }
 
 // 이전 버튼을 클릭했을때 이전 이미지를 보여주는 함수를 호출 시켜줘
-// 버튼에 이벤트 리스너 등록 => .addEventListener
+// 1. 버튼에 이벤트 리스너 등록 => .addEventListener
 // 인자 2개 => event, function
 // 콜백 함수 => 함수이름만 와야 () 필요없음
+prev.addEventListener('click',prevSlide); // 이전 이미지 표시
+next.addEventListener('click',nextSlide); // 다음 이미지 표시
 
-// prev.addEventListener('click',prevSlide); // 이전 이미지 표시
-// next.addEventListener('click',nextSlide); // 다음 이미지 표시
-
-// (참고) 클릭 속성으로도 가능
+// (참고) 2. 바로 onclick 속성으로도 가능
 // prev.onclick = prevSlide;
 // next.onclick = nextSlide;
 
