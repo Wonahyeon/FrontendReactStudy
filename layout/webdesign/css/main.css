@@ -36,8 +36,17 @@ header {
   width: 250px;
   height: 100px;
 
+  padding-left: 20px;
+  line-height: 100px;
   /* 영역 확인용 */
-  background-color: indigo;
+  /* background-color: indigo; */
+}
+
+#logo h1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0 -1px 0 #222;
 }
 
 /* 네비게이션 영역 */
@@ -45,8 +54,68 @@ nav {
   width: 900px;
   height: 100px;
 
+  padding-top: 40px;
+
   /* 영역 확인용 */
-  background-color: green;
+  /* background-color: green; */
+}
+
+#topMenu {
+  height: 60px;
+  display: flex;
+}
+
+#topMenu > li {
+  /* 서브 메뉴를 absolute로 만들기 위해 부모 요소에 위치 기준 */
+  position: relative;
+}
+
+#topMenu > li > a {
+  display: block;
+  padding: 20px 60px;
+  color: #fff;
+  text-shadow: 0 1px #07c;
+}
+
+#topMenu > li > a:hover {
+  color: #000;
+  text-shadow: 0 -1px #07c;
+}
+
+#topMenu > li > a > span {
+  font-size: 0.5em;
+}
+
+/* 서브 메뉴 */
+/* 처음에는 display: none; 을 지정해 감추고,
+  메인 메뉴 위로 마우스를 올리면 display: block;을 사용해 표시
+ */
+
+#topMenu > li > ul {
+  width: 160px;
+  background-color: rgba(255,255,255,0.6);
+  position: absolute;
+  left: 20px;
+  z-index: 10; /* 슬라이드 쇼에 가리지 않게 조절 */
+  display: none;
+}
+
+#topMenu > li:hover > ul {
+  display: block;
+}
+
+#topMenu > li:hover > ul > li {
+  padding: 10px 10px 10px 30px;
+}
+
+#topMenu > li:hover > ul > li > a {
+  font-size: 14px;
+  padding: 10px;
+  color: #000;
+}
+
+#topMenu > li:hover > ul > li > a:hover {
+  color: #f00;
 }
 
 /* 이미지 슬라이드 영역 */
@@ -56,7 +125,37 @@ nav {
   overflow: hidden;
 
   /* 영역 확인용 */
-  background-color: orange;
+  /* background-color: orange; */
+}
+
+#slides {
+  position: relative;
+  display: flex;
+}
+#slides > button {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border: none;
+  padding: 20px;
+  background-color: transparent;
+  color: #000;
+  font-weight: 800;
+  font-size: 24px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+#prev {
+  left: 0;
+}
+#next {
+  right: 0;
+}
+
+#slides > button:hover {
+  background-color: #222;
+  color: #fff;
+  opacity: 0.6;
 }
 
 /* 콘텐츠 영역 */
