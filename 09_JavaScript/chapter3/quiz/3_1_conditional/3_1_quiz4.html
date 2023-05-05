@@ -19,9 +19,20 @@
     let msg = '놀이기구 이용 가능';
     
     // 풀이4-1
-    
+    if (height >= 150) {
+      document.write(msg);
+    } else if (height < 150 && height > 0){
+      // 풀이4-2
+      msg = confirm('부모님과 함께 왔나요?');
+      if (msg) {
+        document.write('좋은 시간 보내렴~');
+      } else {
+        document.write('어른 모시고 다시 오렴~');
+      }
+    } else {
+      alert('에러입니다.');
+    }
 
-    // 풀이4-2
     
   </script>
 </head>

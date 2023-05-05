@@ -23,6 +23,38 @@
     let change = 0; // 거스름돈
 
     // 풀이
+    let snack, price; // 과자 종류,가격
+
+    if (money > 0) {
+      snack = prompt('뽑을 과자를 입력해주세요','');
+      switch (snack) {
+      case '허니버터':
+        price = 1300;
+        break;
+      case '칸쵸':
+        price = 1500;
+        break;
+      case '프링글스':
+        price = 3000;
+        break;
+      default:
+        alert('에러입니다. 없는 과자 종류입니다!');
+        location.reload();
+        break;
+    }
+      change = money - price;
+      if (change >=0 ){
+        document.write('넣은 돈: ', money,'원<br>');
+        document.write('선택한 과자: ', snack,'<br>');
+        document.write('거스름돈: ', change,'원');
+      } else {
+        alert('에러입니다. 돈이 부족합니다!');
+        location.reload();
+      }
+    } else {
+      alert('에러입니다. 정상적인 돈 값을 입력바랍니다!');
+      location.reload();
+    }
     
   </script>
 </head>

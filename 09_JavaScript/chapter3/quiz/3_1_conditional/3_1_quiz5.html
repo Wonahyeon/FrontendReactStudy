@@ -12,6 +12,49 @@
 
     // 풀이5
     // 주의! 덧셈을 하려면 숫자로 변환해 줄 것!!
+    const num1 = prompt('첫번째 정수:','0');
+    const num2 = prompt('두번째 정수:','0');
+    const num3 = prompt('세번째 정수:','0');
+
+    let maxNum, minNum;
+    // 내장함수 이용
+    // maxNum = Math.max(Number(num1), Number(num2),Number(num3));
+    // minNum = Math.min(Number(num1), Number(num2),Number(num3));
+    
+    // if문 이용
+    if (num1 >= num2 && num1 >= num3) {
+      maxNum = num1;
+      if (num3 >= num2) {
+        minNum = num2;
+      } else {
+        minNum = num3;
+      }
+    } else if (num2 >= num1 && num2 >= num3) {
+      maxNum = num2;
+      if (num1 >= num3) {
+        minNum = num3;
+      } else {
+        minNum = num1;
+      }
+    } else if (num3 >= num1 && num3 >= num2) {
+      maxNum = num3;
+      if (num2 >= num1) {
+        minNum = num1;
+      } else {
+        minNum = num2;
+      }
+    }
+    
+    const sumNum = Number(num1) + Number(num2) + Number(num3);
+    const avgNum = sumNum / 3;
+
+    document.write(num1, ' ', num2, ' ', num3, '<br>');
+    document.write('최대값: ' + maxNum, '<br>');
+    document.write('최소값: ' + minNum, '<br>');
+    document.write('합계: ' + sumNum, '<br>');
+    document.write('평균: ' + avgNum, '<br>');
+
+
     
   </script>
 </head>
