@@ -25,28 +25,27 @@
     // 풀이
     let snack, price; // 과자 종류,가격
 
-    if (money > 0) {
-      snack = prompt('뽑을 과자를 입력해주세요','');
+    // isNum : 숫자?
+    if (money > 0 && isNum(money)) {
+      snack = prompt('뽑을 과자를 입력해주세요(허니버터, 칸쵸, 프링글스)','');
       switch (snack) {
-      case '허니버터':
-        price = 1300;
-        break;
-      case '칸쵸':
-        price = 1500;
-        break;
-      case '프링글스':
-        price = 3000;
-        break;
-      default:
-        alert('에러입니다. 없는 과자 종류입니다!');
-        location.reload();
-        break;
-    }
+        case '허니버터':
+          price = 1300;
+          break;
+        case '칸쵸':
+          price = 1500;
+          break;
+        case '프링글스':
+          price = 3000;
+          break;
+        default:
+          alert('에러입니다. 없는 과자 종류입니다!');
+          location.reload();
+          break;
+      }
       change = money - price;
       if (change >=0 ){
-        document.write('넣은 돈: ', money,'원<br>');
-        document.write('선택한 과자: ', snack,'<br>');
-        document.write('거스름돈: ', change,'원');
+        document.write(`${snack} 나왔습니다. 거스름돈은 ${change}원입니다.`);
       } else {
         alert('에러입니다. 돈이 부족합니다!');
         location.reload();
@@ -55,6 +54,37 @@
       alert('에러입니다. 정상적인 돈 값을 입력바랍니다!');
       location.reload();
     }
+
+    // 다른 풀이
+    // isNaN : 숫자 입력 오류?
+    // if (money <= 0 || isNaN(money)) { // 정상적인 돈 값이 입력되지 않았을때
+    //   alert('돈을 다시 넣어주세요.');
+    //   location.reload(); // 새로고침
+    // } else { // 정상적인 돈이 입력되는 경우
+    //   const snack = prompt('어떤 과자를 뽑으실 건가요?(허니버터, 칸쵸, 프링글스)');
+    //   switch (snack) {
+    //   case '허니버터':
+    //     change = money - 1300;
+    //     break;
+    //     case '칸쵸':
+    //     change = money - 1500;
+    //     break;
+    //     case '프링글스':
+    //     change = money - 3000;
+    //     break;
+    //   default: // 없는 과자 종류 입력 시
+    //     alert('해당 과자가 없습니다.');
+    //     location.reload();
+    //     break;
+    // }
+    // if (change < 0) { // 돈이 모자랄때
+    //   alert('돈이 부족합니다.');
+    //   location.reload();
+    // }
+    // document.write(`${snack} 나왔습니다. 거스름돈은 ${change}원입니다.`);
+    // }
+
+    
     
   </script>
 </head>

@@ -14,7 +14,7 @@
     // (점수가 0미만 100초과이면 "에러입니다." 라는 alert창을 띄우세요.)
 
     // 풀이3
-    const grade = prompt('학년:','');
+    const grade = prompt('학년:','1');
     const score = prompt('성적:','0');
 
     if (grade >= 1 && grade <= 3) {
@@ -23,7 +23,7 @@
       } else if (score < 60 && score >= 0) {
         document.write('불합격');
       } else {
-        alert('에러입니다.');
+        alert('에러입니다.(성적 재입력)');
       }
     } else if (grade > 3 && grade <= 6){
       if (score >= 70 && score <= 100) {
@@ -31,11 +31,25 @@
       } else if (score < 70 && score >= 0) {
         document.write('불합격');
       } else {
-        alert('에러입니다.');
+        alert('에러입니다.(성적 재입력)');
       }
     } else {
-      alert('에러입니다.');
+      alert('에러입니다.(학년 재입력)');
     }
+
+    // 다른 풀이
+    // let msg = '에러입니다.';
+    // if (score < 0 || score > 100) {
+    //   alert(msg);
+    // } else { // 성적이 0 이상 100 이하인 경우
+    //   if ((grade >=1 && grade <= 3 && score >= 60) ||  // 학년이 1 이상 3이하이고 성적이 60 이상 이거나
+    //       (grade >=4 && grade <= 6 && score >= 70)) {  // 학년이 4 이상 6이하 이고 성적이 70 이상
+    //     msg = '합격';
+    //   } else {
+    //     msg = '불합격';
+    //   }
+    // }
+    // document.write(msg);
   </script>
 </head>
 <body>

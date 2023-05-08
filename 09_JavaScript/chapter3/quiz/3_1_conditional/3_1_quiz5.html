@@ -12,17 +12,26 @@
 
     // 풀이5
     // 주의! 덧셈을 하려면 숫자로 변환해 줄 것!!
-    const num1 = prompt('첫번째 정수:','0');
-    const num2 = prompt('두번째 정수:','0');
-    const num3 = prompt('세번째 정수:','0');
+
+    // 숫자비교랑 문자비교 다름
+    // '11' > '2' -> false
+    // 문자는 앞끼리 비교
+    // 숫자와 문자 비교
+    // '11' > 2 -> true
+    // 비교 연산시 숫자와 비교하면 문자 숫자로 봄
+    
+    const num1 = Number(prompt('첫번째 정수','0'));
+    const num2 = Number(prompt('두번째 정수','0'));
+    const num3 = Number(prompt('세번째 정수','0'));
 
     let maxNum, minNum;
     // 내장함수 이용
-    // maxNum = Math.max(Number(num1), Number(num2),Number(num3));
-    // minNum = Math.min(Number(num1), Number(num2),Number(num3));
+    // maxNum = Math.max(num1,num2,num3);
+    // minNum = Math.min(num1,num2,num3);
     
     // if문 이용
     if (num1 >= num2 && num1 >= num3) {
+      // 최대값이 num1일 경우
       maxNum = num1;
       if (num3 >= num2) {
         minNum = num2;
@@ -30,6 +39,7 @@
         minNum = num3;
       }
     } else if (num2 >= num1 && num2 >= num3) {
+      // 최대값이 num2일 경우
       maxNum = num2;
       if (num1 >= num3) {
         minNum = num3;
@@ -37,6 +47,7 @@
         minNum = num1;
       }
     } else if (num3 >= num1 && num3 >= num2) {
+      // 최대값이 num3일 경우
       maxNum = num3;
       if (num2 >= num1) {
         minNum = num1;
@@ -44,8 +55,20 @@
         minNum = num2;
       }
     }
+
+    // 다른 풀이
+    // 최대값
+    // maxNum = num1;
+    // if (maxNum < num2) maxNum = num2;
+    // if (maxNum < num3) maxNum = num3;
+
+    // 최소값
+    // minNum = num1;
+    // if (minNum > num2) minNum = num2;
+    // if (minNum > num3) minNum = num3;
+
     
-    const sumNum = Number(num1) + Number(num2) + Number(num3);
+    const sumNum = num1 +  num2 + num3;
     const avgNum = sumNum / 3;
 
     document.write(num1, ' ', num2, ' ', num3, '<br>');
