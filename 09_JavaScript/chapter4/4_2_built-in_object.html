@@ -88,75 +88,72 @@
     
     // random()을 이용하여 특정 범위의 랜덤한 정수값 구하기
     document.write('<h1>1 ~ 10까지 랜덤한 정수값 구하기</h1>');
-    // 0.0 <= Math.random() < 1.0
+    // 0.0 <= Math.random() < 1.0 (0 이상 1미만의 랜덤한 실수값)
     document.write(randomNum,'<br>');
     // 0.0 <= Math.random() * 10 < 10.0 (0 이상 10미만의 랜덤한 실수값)
     document.write(randomNum * 10,'<br>');
-    // 0 <= Math.floor(Math.random() * 10) < 10 (0 이상 10미만의 랜덤한 실수값)
+    // 0 <= Math.floor(Math.random() * 10) < 10 (0 이상 10미만의 랜덤한 정수값)
     document.write(Math.floor(randomNum * 10),'<br>');
-    // 1 <= Math.floor(Math.random() * 10) + 1< 11 (1 이상 11미만의 랜덤한 실수값)
+    // 1 <= Math.floor(Math.random() * 10) + 1 < 11 (1 이상 11미만의 랜덤한 정수값)
     document.write(Math.floor(randomNum * 10) + 1,'<br>');
     
     // 공식화: Math.floor(Math.random() * (최대값 - 최소값 + 1)) + 최소값; // 최소값 ~ 최대값 랜덤
-    // 로또
-    // for(let i = 0; i < 6; i++){
-    //     document.write(Math.floor(Math.random() * 45) + 1,' ');
-    //   }
+    
 
 
     // 컴퓨터가 내려는 가위, 바위, 보 맞추기!
-    document.write('<h1>컴퓨터 가위, 바위, 보 맞추기</h1>');
-    const game = prompt('가위, 바위, 보 중 선택하세요.', '가위');
-    let gameNum;
+    // document.write('<h1>컴퓨터 가위, 바위, 보 맞추기</h1>');
+    // const game = prompt('가위, 바위, 보 중 선택하세요.', '가위');
+    // let gameNum;
 
-    switch (game) {
-      case '가위':
-        gameNum = 1;
-        break;
-      case '바위':
-        gameNum = 2;
-        break;
-      case '보':
-        gameNum = 3;
-        break;
-      default:
-        alert('잘못 작성하셨습니다.');
-        location.reload();
-        break;
-    }
+    // switch (game) {
+    //   case '가위':
+    //     gameNum = 1;
+    //     break;
+    //   case '바위':
+    //     gameNum = 2;
+    //     break;
+    //   case '보':
+    //     gameNum = 3;
+    //     break;
+    //   default:
+    //     alert('잘못 작성하셨습니다.');
+    //     location.reload();
+    //     break;
+    // }
 
     // 1~3 사이의 정수값 난수 발생
-    const com = Math.floor(Math.random() * 3) + 1;
-    document.write(`<img src="images/math_img_${com}.jpg">`);
+    // const com = Math.floor(Math.random() * 3) + 1;
+    // document.write(`<img src="images/math_img_${com}.jpg">`);
 
-    if (gameNum === com) {
-      document.write('<img src="images/game_1.jpg">');
-    } else {
-      document.write('<img src="images/game_2.jpg">');
-    }
+    // if (gameNum === com) {
+    //   document.write('<img src="images/game_1.jpg">');
+    // } else {
+    //   document.write('<img src="images/game_2.jpg">');
+    // }
 
     // Quiz : 맞추는 게임이 아닌 가위, 바위, 보 게임으로 바꿔보기
-    document.write('<h1>컴퓨터랑 가위, 바위, 보 게임</h1>');
-    document.write('내가 낸 것');
-    // 내가 낸 것 이미지 출력
-    document.write(`<img src="images/math_img_${gameNum}.jpg">`);
-    document.write('VS 컴퓨터가 낸 것');
-    // 컴퓨터가 낸 것 이미지 출력
-    document.write(`<img src="images/math_img_${com}.jpg">`,'<br><br>');
+    // document.write('<h1>컴퓨터랑 가위, 바위, 보 게임</h1>');
+    // document.write('내가 낸 것');
+    // // 내가 낸 것 이미지 출력
+    // document.write(`<img src="images/math_img_${gameNum}.jpg">`);
+    // document.write('VS 컴퓨터가 낸 것');
+    // // 컴퓨터가 낸 것 이미지 출력
+    // document.write(`<img src="images/math_img_${com}.jpg">`,'<br><br>');
 
-    let msg = '내가 이겼습니다.';
-    if (gameNum === com) {
-      msg = '비겼습니다.'
-    } else if (gameNum === 1 && com === 2 ||
-    gameNum === 2 && com === 3 ||
-    gameNum === 3 && com === 1
-    ) {
-      msg = '컴퓨터가 이겼습니다.';
-    }
+    // let msg = '내가 이겼습니다.';
+    // if (gameNum === com) {
+    //   msg = '비겼습니다.';
+    // } else if (gameNum === 1 && com === 2 ||
+    // gameNum === 2 && com === 3 ||
+    // gameNum === 3 && com === 1
+    // ) {
+    //   msg = '컴퓨터가 이겼습니다.';
+    // }
     // else문 하는 일 없으면 굳이 안 써도 됨.
 
     // 누가 이겼는지 출력!!
-    document.write(msg);
+    // document.write(msg);
 
     // 간단한 풀이
     // gameNum과 com의 차를 이용
@@ -172,7 +169,132 @@
     //   document.write('컴퓨터가 이겼다');
     // }
 
-  
+    // 3) 배열 객체: 변수는 하나의 데이터만 저장 가능, 배열은 여러 개의 데이터를 순차적으로 하나의 저장소에 저장
+    // 예:  학생 30명의 시험 점수를 저장하려면 30개의 변수가 필요한데, 배열을 이용하면 하나의 배열로 30개의 데이터 저장 가능
+
+
+    // 배열 객체 생성 3가지 방식
+    // 첫번째 방식
+    // 변수 = new Array(값1, 값2, 값3);
+    
+    // 두번째 방식
+    // 변수 = new Array(); // 빈 배열 객체 생성
+    // 변수[0] = 값1;
+    // 변수[1] = 값2;
+    // 변수[2] = 값3;
+    
+    // 세번째 방식 (리터럴 방식)
+    // 변수 = [값1, 값2, 값3];
+    
+    // 배열에 접근하기
+    // 배열의 인덱스는 0부터 시작
+    // 변수[인덱스 번호]로 접근 가능
+
+    // 배열에 저장된 값 출력하기(여러가지 방법이 존재)
+    const arr = [30, '따르릉', true];
+    // console.log(arr);
+
+    document.write('<h3>배열값 가져오기-1</h3>');
+    document.write(arr[0],'<br>');
+    document.write(arr[1],'<br>');
+    document.write(arr[2],'<br>');
+    
+    document.write('<h3>배열값 가져오기-2</h3>');
+    // for (let i = 0; i < 3; i++) {
+    //   document.write(arr[i],'<br>');
+    // }
+    for (let i = 0; i < arr.length; i++) {
+      document.write(arr[i],'<br>');
+    }
+      
+    document.write('<h3>배열값 가져오기-3</h3>');
+    for (const i in arr) { // Key 값을 가져옴 -> key 값 = index
+      document.write(arr[i],'<br>');
+    }
+    // (참고)
+    // for..in 반복문은 배열이 아니라 객체와 함께 사용할 때 최적화되어 있어서 배열에 사용하면 객체에 사용하는 것 대비 10 ~ 100배 정도 느림
+    // for..in 반복문의 속도가 대체로 빠른 편이기 때문에 문제가 되진 않지만, 이런 차이을 알고 적절히 사용
+    // 보통 배열엔 되도록 for..in 쓰지 말 것을 권장!!
+    
+    document.write('<h3>배열값 가져오기-4</h3>');
+    for (const el of arr) { // Value 값을 가져옴(ES6차)
+      document.write(el,'<br>');
+    }
+    
+    document.write('<h3>배열값 가져오기-5</h3>');
+    arr.forEach(function(element, index) { // 콜백함수
+      document.write(index, ' ', element,'<br>');
+    });
+
+    // 배열 객체의 메소드(1)
+    const arr1 = ['사당', '교대','방배','강남'];
+    const arr2 = ['신사','압구정','옥수'];
+
+    let resultArr = arr1.join('-'); // 배열의 값을 지정한 문자(기본값:,)로 연결하여 하나의 문자열로 반환
+    console.log(resultArr);
+
+    resultArr = arr1.concat(arr2); // 2개의 배열을 하나의 배열로 결합하여 새로운 배열로 반환
+    console.log(resultArr);
+
+    resultArr = arr1.slice(1, 3); // 지정된 시작과 끝(미포함) 위치 구간만큼 잘라내서 새로운 배열로 반환
+    console.log(resultArr);
+
+    arr1.sort(); // 배열의 값을 오름차순(알파벳 순)으로 정렬(원본 배열이 변경됨) 
+    console.log(arr1);
+
+    arr2.reverse(); // 배열의 순서를 반대로 바꿈(원본 배열이 변경됨)
+    console.log(arr2);
+
+    // (중요) array.sort(비교함수): 숫자를 정렬하기 위한 비교 함수 필요
+    // 비교함수: function(a, b) { return a - b; }
+    document.write('<h1>배열에서 숫자 데이터 정렬</h1>')
+    const score = [40, 100, 1, 5, 25, 10];
+    document.write(score.sort(), '<br>'); // 문자로 정렬, 문자 비교, 앞자리만 비교, '25'는 '100'보다 크다. 왜냐하면 '2'가 '1'보다 크기 때문에
+    document.write(score.sort(function(a, b) { return a - b; }), '<br>'); // 오름 차순
+    document.write(score.sort(function(a, b) { return b - a; }), '<br>'); // 내림 차순
+
+    // 반환되는 값이 음수, 양수, 0인지에 따라 정렬이 바뀜
+    // 음수가 나오면 a, b 순으로
+    // 양수가 나오면 b, a 순으로
+    // 0이 나오면 변화없음
+
+    // 배열 객체의 메소드(2)
+    const greenArr = ['교대','방배','강남'];
+    const yellowArr = ['미금','정자','수서'];
+
+    // array.splice(index, howmany, item1, ....., itemX)
+    // greenArr.splice(2, 1); // 배열 요소를 제거(원본 배열이 변경)
+    // console.log(greenArr);
+    // greenArr.splice(3, 0, '서초', '역삼'); // 배열 요소를 추가(원본 배열이 변경)
+    // console.log(greenArr);
+    greenArr.splice(2, 1, '서초', '역삼'); // 배열 요소를 추가하거나 제거(원본 배열이 변경)
+    console.log(greenArr);
+    
+    const popData = yellowArr.pop(); // 배열의 마지막 요소를 제거, 제거된 요소를 반환(원본 배열이 변경)
+    console.log(yellowArr);
+    console.log(popData);
+    const shiftData = yellowArr.shift(); // 배열의 첫번째 요소를 제거, 제거된 요소를 반환(원본 배열이 변경)
+    console.log(yellowArr);
+    console.log(shiftData);
+    
+    yellowArr.push(shiftData); // 배열의 끝에 새 요소를 추가(원본 배열이 변경됨), 새로운 배열의 길이를 반환
+    console.log(yellowArr);
+
+    yellowArr.unshift(shiftData); // 배열의 시작 부분에 새 요소를 추가(원본 배열이 변경됨), 새로운 배열의 길이를 반환
+    console.log(yellowArr);
+
+    // 배열 객체 매소드(3) - 검색
+    const fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Apple'];
+    
+    // indexOf(): 지정된 값의 첫번째 인덱스(위치)를 반환, 찾을 수 없는 경우 -1을 반환
+    let index = fruits.indexOf('Apple');
+    console.log(index);
+    index = fruits.indexOf('Apple', 3); // 검색 시작 위치 지정
+    console.log(index);
+    // includes(): 지정된 값이 포함된 경우 true, 포함되지 않은 경우 false (ES7차)
+    console.log(fruits.includes('Mango'));
+    console.log(fruits.includes('Banana',3));
+
 
     </script>
 </head>
