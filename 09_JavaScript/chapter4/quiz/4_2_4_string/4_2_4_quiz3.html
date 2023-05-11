@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제3
+    // 다음과 같이 이미지 파일을 변경하고자 합니다.
+    // "images/bnt_out.jpg"를 "images/bnt_over.jpg" 로 변경하고 출력하세요.
+
+    // 풀이3
+    const imgFile = "images/bnt_out.jpg";
+    let changeName;
+
+    changeName = imgFile.substring(imgFile.indexOf('_') + 1,imgFile.indexOf('.'));
+    document.write(imgFile.replace(changeName,'over'));
+
+    // 다른 풀이
+    // const imsSrc = "images/bnt_out.jpg";
+    // const newImsSrc = imgSrc.replace('out.jpg','over.jpg');
+    // document.write(newImsSrc);
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
