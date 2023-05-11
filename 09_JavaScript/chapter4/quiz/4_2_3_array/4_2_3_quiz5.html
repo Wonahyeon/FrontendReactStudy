@@ -21,11 +21,17 @@
       const arrData = prompt('데이터를 입력해주세요','0');
       // 입력받은 데이터 arr에 추가
       arr.push(arrData);
+      // arr[i] = prompt('데이터를 입력해주세요','0');
     }
     document.write(arr, '<br>');
+
+    // const arrFst = arr[0];
+    // const arrLst = arr[arr.length - 1];
     const arrFst = arr.shift();
     const arrLst = arr.pop();
-    document.write(arrFst + ' ' + arrLst);
+    if (arr.length > 0) { // 배열 길이 0일 때 출력 방지
+      document.write(arrFst + ' ' + arrLst);
+    }
 
   </script>
 </head>

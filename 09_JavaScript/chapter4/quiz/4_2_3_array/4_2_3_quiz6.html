@@ -14,22 +14,41 @@
 
     const lottoArr = []; // 빈 배열
     
-    // 풀이6
-    
+    // 풀이 6 - 1
+    // while문
     while(lottoArr.length < 6) {
       const lottoNum = Math.floor(Math.random() * 45) + 1;
+      // indexOf 이용
       // indexOf : 지정된 값의 첫번째 인덱스(위치)를 반환, 찾을 수 없는 경우 -1을 반환
       // if (lottoNum !== lottoArr[lottoArr.indexOf(lottoNum)]) {
       //   lottoArr.push(lottoNum);
       //   // console.log(lottoArr);
       // }
-      if (lottoArr.indexOf(lottoNum) === -1) { // 찾을 수 없으면 (중복값이 아니면)
-        lottoArr.push(lottoNum); // 추가
-        // console.log(lottoArr);
+      // if (lottoArr.indexOf(lottoNum) === -1) { // 배열에서 찾을 수 없을때 (중복값이 아니면)
+      //   lottoArr.push(lottoNum); // 추가
+      // }
+
+      // includes 이용
+      if (!lottoArr.includes(lottoNum)) { // 배열에 포함되지 않았을때
+        lottoArr.push(lottoNum);
       }
     }
-    document.write(lottoArr.sort(function(a, b){ return a - b;}));
+    document.write((lottoArr),'<br>');
+    document.write(lottoArr.sort(function(a, b){ return a - b;}),'<br>');
 
+
+    // 풀이 6 - 2
+    // for문
+    const lottoArr2 = [];
+
+    for (let i = 0; i < 6;) {
+      const lottoNum = Math.floor(Math.random() * 45) + 1;
+      if (!lottoArr2.includes(lottoNum)) { 
+        lottoArr2.push(lottoNum);
+        i++;
+      }
+    }
+    document.write(lottoArr2.sort(function(a, b){ return a - b;}));
     
   </script>
 </head>
