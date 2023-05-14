@@ -15,7 +15,32 @@
 
 
     // 풀이3
-    printNumbers(5, 10); // 5 ~ 10 까지 1초 간격으로 출력
+    // printNumbers(5, 10); // 5 ~ 10 까지 1초 간격으로 출력
+
+    // 해석
+    // let count = 5;
+    // const print = setInterval(function() {
+    //   document.write(count++,'<br>');
+    //   if (count > 10) {
+    //     clearInterval(print);
+    //   }
+    // },1000);
+
+    function printNumbers(from, to) {
+      const print = setInterval(function () {
+        document.write(from,'<br>');
+        from++;
+        if (from > to) {
+          clearInterval(print);
+        }
+      }, 1000);
+    }
+    printNumbers(5, 10);
+
+
+
+
+
   </script>
 </head>
 <body>

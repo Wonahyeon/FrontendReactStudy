@@ -17,7 +17,19 @@
 
 
     // 풀이2
-    
+    const x = prompt('x');
+    const n = prompt('n');
+
+    function pow(x, n) {
+      return x ** n;
+    }
+
+    if (n >= 1) {
+      document.write(`${x}의 ${n} 제곱: ${pow(x, n)}`);
+    } else {
+      alert('자연수를 입력하세요!');
+    }
+
   </script>
 </head>
 <body>
