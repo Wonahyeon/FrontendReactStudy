@@ -17,29 +17,45 @@
     // 풀이3
     // printNumbers(5, 10); // 5 ~ 10 까지 1초 간격으로 출력
 
+    
     // 해석
     // let count = 5;
     // const print = setInterval(function() {
-    //   document.write(count++,'<br>');
-    //   if (count > 10) {
-    //     clearInterval(print);
-    //   }
-    // },1000);
-
+      //   document.write(count++,'<br>');
+      //   if (count > 10) {
+        //     clearInterval(print);
+        //   }
+        // },1000);
+        
+    // function printNumbers(from, to) {
+    //   const print = setInterval(function () {
+    //     document.write(from,'<br>');
+    //     from++;
+    //     if (from > to) {
+    //       clearInterval(print);
+    //     }
+    //   }, 1000);
+    // }
+    // printNumbers(5, 10);
+    
+    // 다른 풀이
+    
+    // 한글로 풀이
+    // 1) 함수 printNumbers(from, to)를 선언하기
+    // 2) 1초 간격(setInterval(함수,1000))으로 from값을 출력시키기
+    // 3) 출력되는 숫자를 1씩 증가시키기(+1, ++)
+    // 4) to 값까지만(조건 : from === to,from >= to) 출력하고 멈추기(clearInterval())
+    
     function printNumbers(from, to) {
-      const print = setInterval(function () {
-        document.write(from,'<br>');
-        from++;
-        if (from > to) {
-          clearInterval(print);
+      const timerId = setInterval(function () {
+        document.write(from);
+        if (from >= to) {
+          clearInterval(timerId);
         }
+        from++;
       }, 1000);
     }
     printNumbers(5, 10);
-
-
-
-
 
   </script>
 </head>

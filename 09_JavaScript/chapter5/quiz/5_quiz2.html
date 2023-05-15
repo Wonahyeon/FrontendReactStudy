@@ -17,18 +17,40 @@
 
 
     // 풀이2
-    const x = prompt('x');
-    const n = prompt('n');
-
+    // const x = prompt('x');
+    // const n = prompt('n');
+    
+    // function pow(x, n) {
+    //   return x ** n;
+    // }
+    
+    // if (n >= 1) {
+    //   document.write(`${x}의 ${n} 제곱: ${pow(x, n)}`);
+    // } else {
+    //   alert('자연수를 입력하세요!');
+    // }
+    
+    // 다른 풀이
     function pow(x, n) {
-      return x ** n;
+      let result = x;
+      
+      for (let i = 1; i < n; i ++) {
+        result *= x;
+      }
+      
+      return result;
     }
-
-    if (n >= 1) {
-      document.write(`${x}의 ${n} 제곱: ${pow(x, n)}`);
+    
+    const x = prompt('x?');
+    const n = prompt('n?');
+    
+    if (n < 1) {
+      alert(`${n}은 양의 정수이어야 합니다.`);
     } else {
-      alert('자연수를 입력하세요!');
+      document.write(pow(x,n));
     }
+    
+
 
   </script>
 </head>
