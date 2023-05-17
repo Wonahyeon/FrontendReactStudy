@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
     // 템플릿 리터럴
     // 백틱(``) 기호를 사용하여 문자열 삽입
 
@@ -46,6 +46,26 @@ my name is wonah
 how are you?`;
     console.log(content);
     
+    // map함수 사용하는 중첩 템플릿
+    const people = [{
+        name: 'Alberto',
+        age: 27
+        
+        }, {
+            name: 'Caroline',
+            age: 27
+        }, {
+            name: 'Josh',
+            age: 31
+        }
+    ];
+
+    const markup = `
+    <ul>
+        ${people.map(person => `<li>    ${person.name}</li>`)}
+    </ul>
+    `;
+    console.log(markup);
 
 
 
@@ -53,6 +73,6 @@ how are you?`;
     </script>
 </head>
 <body>
-  
+
 </body>
 </html>

@@ -36,6 +36,11 @@
     let err = false;
     const fileInput = document.querySelector('input[type=file]');
     fileInput.addEventListener('change', function () {
+      console.log(fileInput); // input DOM
+      console.log(fileInput.files); // FileList 객체
+      console.log(Array.from(fileInput.files)); // FileList 객체를 실제 배열로 변환 ★ES6+/8_array_method.html
+      console.log(fileInput.files[0]); // File 객체
+      console.log(fileInput.files[0].name); // File name
       const fileName = fileInput.files[0].name;
       
       // fileExt = fileName.substring(fileName.indexOf('.') + 1,fileName.length);
