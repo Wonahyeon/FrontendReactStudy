@@ -111,6 +111,63 @@
     console.log(teacher); // 원본은 변경 안됨
 
 
+    // 2. 레스트(rest, 나머지) 연산자
+    // 생긴 것은 스프레드 연산자와 동일하지만 기능적으로는 정반대
+    // 스프레드는 '확장(펼치다)'하는 반명, rest는 나머지 여러 요소를 하나의 요소로 '압축'
+
+
+    // 1) 배열과 레스트
+    const runners = ['Kim', 'Lee', 'Park', 'Choi'];
+    const [first, second, ...losers] = runners; // 레스트 연산자로 압축
+    
+    console.log(losers); // ['Park', 'Choi']
+    console.log(...losers); // 스프레드 연산자로 쓰임 -> Park Choi
+
+    // 2) 함수의 레스트 파라미터(매개변수)
+    function sum(...args) { 
+      console.log(args); // [4, 5, 16, 25, 100] 나머지 요소를 배열 형태로 반환
+      let sum = 0;
+      for (const arg of args) {
+        sum += arg;
+      }
+      return sum;
+    }
+    const result = sum(4, 5, 16, 25, 100);
+    console.log(`합계: ${result}`);
+
+    // 3) 객체 리터럴과 레스트(ES2018부터 객체에도 적용됨)
+    const myObj = {
+      a: 1,
+      b: 3,
+      c: 5,
+      d: 7,
+      e: 9
+    };
+
+    // 레스트 연산자를 사용하여 a, b를 제외한 나머지 속성을 변수 z에 할당
+    const {a, b, ...z} = myObj;
+    console.log(a, b);
+    console.log(z); // {c: 5, d: 7, e: 9} 나머지 요소를 객체 형태로 반환
+
+
+    // Quiz
+
+    // 9.4
+    let arr = [1, 2, 3, 4];
+    let arr2 = arr;
+    // arr2.push(5);
+    // console.log(arr2); // [1, 2, 3, 4, 5]
+    // console.log(arr); // [1, 2, 3, 4, 5]
+    // 복사x 같은 메모리 참조 -> 원본 배열까지 변함
+
+    // 해결 방안
+    let arr3 = [...arr]; // 스프레드 연산자 사용하여 원본 배열 복사
+    arr3.push(5);
+    console.log(arr3); // [1, 2, 3, 4, 5]
+    console.log(arr); // [1, 2, 3, 4]
+
+
+
   </script>
 </head>
 <body>

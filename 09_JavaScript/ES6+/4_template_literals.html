@@ -67,6 +67,24 @@ how are you?`;
     `;
     console.log(markup);
 
+    // 태그된 템플릿 리터럴
+    let person = 'alberto';
+    let age = 25;
+
+    function myTag(strings, personName, personAge) {
+        // strings: ['That',' is a ', '!']
+        let str =  strings[1];
+        let ageStr;
+
+        personAge > 50 ? agsStr = "grandpa" : ageStr = 'younster';
+
+        return personName + str + ageStr;
+    }
+
+    let setence = myTag`That ${person} is a ${age}`;
+    console.log(setence);
+
+    
 
 
 
