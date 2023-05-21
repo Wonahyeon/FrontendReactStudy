@@ -179,9 +179,16 @@
     //   });
 
     const asyncLoginFunc = async () => {
-      
+      try{
+        const userId = await loginUser(id, password);
+        const userInfo = await getRoles(userId);
+        alert(`welcome ${userInfo.name} (${userInfo.role})`);
+      } catch (err) {
+        console.error(err);
+      }
     };
-    
+    asyncLoginFunc();
+
   </script>
 </head>
 <body>
