@@ -8,6 +8,7 @@
   <script>
     // 3. async/await (ES2017) - 프로미스의 대체가 아님
     // "프로미스를 작성하기 쉽게 만듭니다." - 문법적 설탕
+    // .then() , .catch()로 체이닝 -> 가독성 좋게 바뀜(동기적 코드처럼 보임)
     // async는
     // - 함수 앞에 붙이는 키워드
     // - 함수가 프로미스를 반환하도록 함
@@ -157,7 +158,7 @@
             // 권한을 가져오는 작업을 하고 받아온 권한 정보를 콜백 함수에 전달함
             resolve({name:'JH KIM', role: 'admin'});
           } else {
-            reject(new Error('접근 권한 없음'));
+            reject(new Error('접근 권한 없음')); // 이 에러는 잡히지 않음!
           }
         }, 1000);
       });
@@ -178,16 +179,16 @@
     //     console.error(err);
     //   });
 
-    const asyncLoginFunc = async () => {
+    const loginAndGetRoles = async (id, password) => {
       try{
-        const userId = await loginUser(id, password);
+        const userId = await loginUser(id, password); // await 비동기 작업 끝날 때까지 기다림
         const userInfo = await getRoles(userId);
         alert(`welcome ${userInfo.name} (${userInfo.role})`);
       } catch (err) {
         console.error(err);
       }
-    };
-    asyncLoginFunc();
+    }; 
+    loginAndGetRoles(id, password);
 
   </script>
 </head>

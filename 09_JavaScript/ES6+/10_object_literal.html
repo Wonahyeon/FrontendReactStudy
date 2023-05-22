@@ -76,6 +76,10 @@
     // 빈 객체를 생성
     const person6 = {};
     // 객체를 업데이트(객체에 속성을 추가)
+    // 속성값 변수로 받아올 때 .가 아닌 [] 사용
+    // . 사용하면 'name'이라는 자체로 속성을 만듦
+    // 원하는 출력은 myname: 'wonah'인데
+    // name: 'wonah' 로 출력됨
     person6[name] = 'wonah';
     console.log(person6);
     // 객체를 먼저 생성한 다음 -> 수정
