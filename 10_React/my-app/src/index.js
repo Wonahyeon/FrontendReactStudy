@@ -9,6 +9,10 @@ import Clock1 from './chapter4/Clock1';
 import PropsUse from './chapter5/5.3/PropsUse';
 import Comment from './chapter5/Comment';
 import CommentList from './chapter5/CommentList';
+import NotificationList from './chapter6/NotificationList';
+import Counter from './chapter7/7.2/Counter';
+import SetStateMerge from './chapter7/7.2/SetStateMerge';
+import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
 // TODO:툴 다시 껐다가 키면 해결
 
@@ -36,10 +40,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // }, 1000);
 
 // 5장 예제
+// root.render(
+//   <PropsUse/>
+//   // <Comment/>
+//   // <CommentList/>
+// );
+
+// 6장 예제
+// root.render(
+//   <NotificationList/>
+// );
+
+// 7장 예제
 root.render(
-  // <PropsUse/>
-  // <Comment/>
-  <CommentList/>
+  // <Counter/>
+  // <SetStateMerge/>
+  <CounterEffect/>
 );
 
 // If you want to start measuring performance in your app, pass a function

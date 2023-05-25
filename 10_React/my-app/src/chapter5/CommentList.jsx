@@ -40,10 +40,17 @@ function CommentList(props) {
         );
       })}
 
+      {/* 코드 간소화 */}
+      {comments.map(comment => <Comment name={comment.name} content={comment.content} />)}
+
       {/* map() 함수의 결과 */}
-      {/*
-      [{name: '원아현', content: '안녕하세요. 원아현입니다.'}, {name: '유재석', content: '리액트 재미있어요~!'}, { name: '이이경', content: '저도 리액트 배워보고 싶어요!!'}, {name: '이미주', content: '리액트 너무 어려워'}]
-      */}
+      {[
+        <Comment name={'원아현'} content={'안녕하세요. 원아현입니다.'} />,
+        <Comment name={'유재석'} content={'리액트 재미있어요~!'} />,
+        <Comment name={'이이경'} content={'저도 리액트 배워보고 싶어요!!'} />,
+        <Comment name={'이미주'} content={'리액트 너무 어려워'} />
+      ]}
+    
     </div>
   );
 }
