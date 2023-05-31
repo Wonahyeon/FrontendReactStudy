@@ -42,19 +42,18 @@ function SignUp(props) {
 
   const handleUserInfoChange = (e) => {
     const {name, value} = e.target;
-    console.log(name, value);
+    console.log(name, value); 
     setUserInfo((prevUserInfo) => ({
       ...prevUserInfo,
-      
+      [name]: value
     }));
   };
-
-
 
   const handleSubmit = (e) => {
     alert(`이름: ${name}, 성별: ${gender}`);
     e.preventDefault();
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
