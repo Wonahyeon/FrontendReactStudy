@@ -28,6 +28,15 @@ import LandingPage from './chapter9/LandingPage';
 import NumberList from './chapter10/10.1/NumberList';
 import ListKey from './chapter10/10.2/ListKey';
 import AttendanceBook from './chapter10/AttendanceBook';
+import NameForm from './chapter11/11.2/NameForm';
+import EssayForm from './chapter11/11.3/EssayForm';
+import FlavorForm from './chapter11/11.3/FlavorForm';
+import TextInputWithFocusButton from './chapter7/7.6/TextInputWithFocusButton';
+import FileInput from './chapter11/11.3/FileInput';
+import ComponentVariable from './chapter7/7.6/ComponentVariable';
+import Reservation from './chapter11/11.4/Reservation';
+import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
+import SignUp from './chapter11/SignUp';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
 // TODO:툴 다시 껐다가 키면 해결
 
@@ -60,6 +69,8 @@ root.render(
   // <EffectSummary />
   // <EffectContainer/>
   // <TimerContainer/>
+  // <TextInputWithFocusButton/>
+  // <ComponentVariable/>
 
   // 8장 예제
   // <Toggle/>
@@ -77,7 +88,16 @@ root.render(
   // 10장 예제
   // <NumberList numbers={[1,2,3,4,5]}/>
   // <ListKey/>
-  <AttendanceBook/>
+  // <AttendanceBook/>
+
+  // 11장 예제
+  // <NameForm />
+  // <EssayForm/>
+  // <FlavorForm/>
+  // <FileInput/>
+  // <Reservation/>
+  // <ReservationRefactoring/>
+  <SignUp/>
 );
 
 // 4장 예제

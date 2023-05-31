@@ -17,7 +17,10 @@ function ListKey(props) {
 
   return (
     <>
-      <input type="text" value={value} onChange={(e) => {setValue(e.target.value)}}/>
+      <input
+      type="text"
+      value={value}
+      onChange={(e) => {setValue(e.target.value)}}/>
       <button type='button' onClick={addToList}>추가</button>
       <ul>
         {list.map((item, index) => {
