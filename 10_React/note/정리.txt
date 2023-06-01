@@ -3,6 +3,7 @@
 - 새로운 package 만들었을 때(또는 협업 시)
   git pull -> npm install
 * npm 사용 시 경로 중요 (package.json 파일 있어야 됨)
+- npx create-react-app <project-name>
 - npm start
 
 [JSX 문법]
@@ -404,3 +405,30 @@ usf : useState (tab)
 <input type="file"> 태그
 - 값이 읽기 전용이기 때문에 React에서는 비제어 컴포넌트가 됨
 
+[여러 개의 입력 제어하기]
+- 컴포넌트에 여러 개의 state를 선언하여 각각의 입력에 대해 사용하면 됨
+- 각각의 state를 따로 선언해도 되지만 객체 형태로 한번에 관리할 수 있음
+  예:
+  const [name, setName] = useState('');
+  const [gender, setGender] = useState('male');
+  ->
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    gender: 'male'
+  });
+
+
+
+#0601
+[(참고)Input Null 값]
+- 값이 비어있음을 나타낼 때 value 속성에 null 값 사용 안됨
+  - 일반적으로 제어 컴포넌트에서는 빈 문자('')를 사용
+  - 비제어 컴포넌트에서는 undefined 값을 사용
+- DB에서 받아온 value 속성에 null 값이 있으면 기본값을 주면 됨
+  예: name || ''
+
+[간단한 포스트 만들기]
+- 새로운 리액트 앱 생성
+  - npx create-react-app my-post
+  - cd my-post
+  - npm start
