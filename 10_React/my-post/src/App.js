@@ -16,6 +16,8 @@ function App() {
   const [likeCount, setLikeCount] = useState([0, 0, 0]); // 배열
   const [inputValue, setInputValue] = useState('');
 
+  const [postInputEmpty, setPostInputEmpty] = useState(true); // 미입력 시 비활성화
+
   const handleChagneInputValue = (e) => {
     setInputValue(e.target.value);
   };
@@ -63,18 +65,20 @@ function App() {
           1. 제어 컴포넌트로 만들어서 사용자가 입력한 값을 state로 저장해서 관리 
           2. 등록 버튼 클릭 시 posts 상태에 맨 앞에 새로운 데이터 추가
         */}
-        <input type='text' value={inputValue} onChange={handleChagneInputValue} />
+        <input type='text' value={inputValue} onChange={handleChagneInputValue}/>
         <button onClick={() => {
           // div 하나를 새로 생성 X
           // post state에 요소 하나 추가하면 자동으로 렌더링 O
           const copyPost = [inputValue,...posts];
           setPosts(copyPost);
           setInputValue('');
+          setPostInputEmpty(false);
 
           // (버그 수정) 포스트 하나 추가 시 좋아요 카운트도 같이 추가
           const copyLikeCount = [0, ...likeCount];
           setLikeCount(copyLikeCount);
-        }}>
+        }}
+        disabled={postInputEmpty}>
           포스트 등록
         </button>
 
