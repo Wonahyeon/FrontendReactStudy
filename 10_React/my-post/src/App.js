@@ -51,7 +51,11 @@ function App() {
           <p>by hero</p>
         </div> */}
 
-        <PostListItem posts={posts} />
+        { posts.map((post, index) => {
+          return (
+            <PostListItem posts={posts} post={post} setPosts={setPosts} index={index} setShowPostDetail={setShowPostDetail} setCurrentIndex={setCurrentIndex} likeCount={likeCount} setLikeCount={setLikeCount}/>
+          );
+    })}
 
         {/* 포스트 등록하기 */}
         {/* Quiz: 제목 입력 후 등록 버튼 누르면 맨 앞에 새로운 포스트 추가 */}
@@ -76,7 +80,7 @@ function App() {
 
         {/* 포스트 상세보기 */}
         {/* state 상태를 통해 component 보여짐 여부*/}
-        {showPostDetail && <PostDetail posts={posts} currentIndex={currentIndex} setPosts={setPosts}/>}
+        {showPostDetail && <PostDetail posts={posts} currentIndex={currentIndex} setPosts={setPosts} likeCount ={likeCount} setLikeCount={setLikeCount} />}
       </div>
     </>
   );
