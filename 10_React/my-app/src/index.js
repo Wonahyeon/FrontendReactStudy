@@ -37,6 +37,14 @@ import ComponentVariable from './chapter7/7.6/ComponentVariable';
 import Reservation from './chapter11/11.4/Reservation';
 import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
 import SignUp from './chapter11/SignUp';
+import UnitCalculator from './chapter12/UnitCalculator';
+import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
+import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
+import Dialog from './chapter13/13.1.2/Dialog';
+import DialogContainer from './chapter13/13.1.2/DialogContainer';
+import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
+import ProfileCard from './chapter13/ProfileCard';
+import DarkOrLight from './chapter14/DarkOrLight';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
 // TODO:툴 다시 껐다가 키면 해결
 
@@ -97,7 +105,20 @@ root.render(
   // <FileInput/>
   // <Reservation/>
   // <ReservationRefactoring/>
-  <SignUp/>
+  // <SignUp/>
+
+  // 12장 예제
+  // <UnitCalculator/>
+
+  // 13장 예제
+  // <WelcomeDialog/>
+  // <SplitPaneSection/>
+  // <DialogContainer/>
+  // <SignUpDialog/>
+  // <ProfileCard/>
+
+  // 14장 예제
+  <DarkOrLight/>
 );
 
 // 4장 예제
