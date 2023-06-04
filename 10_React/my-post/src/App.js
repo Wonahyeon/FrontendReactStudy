@@ -8,9 +8,29 @@ import PostListItem from './components/PostListItem';
 // R: Read(목록, 상세보기)
 // U: Update(수정)
 // D: Delete(삭제)
+
+const postData = [
+  {
+    title: '리액트를 잘 쓰려면?',
+    date: '2023년 1월 20일',
+    author: 'goni.kim'
+  },
+  {
+    title: '자바스크립트 핵심 문법',
+    date: '2023년 1월 1일',
+    author: 'alice'
+  },
+  {
+    title: '스타일링 가이드',
+    date: '2022년 12월 20일',
+    author: 'hero'
+  }
+];
+
 function App() {
   // 서버에서 가져온 데이터라고 가정
-  const [posts, setPosts] = useState(['리액트 잘 쓰려면?', '자바스크립트 핵심 문법', '스타일링 가이드']);
+  // const [posts, setPosts] = useState(['리액트 잘 쓰려면?', '자바스크립트 핵심 문법', '스타일링 가이드']);
+  const [posts, setPosts] = useState(postData);
   const [showPostDetail, setShowPostDetail] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [likeCount, setLikeCount] = useState([0, 0, 0]); // 배열
@@ -20,6 +40,9 @@ function App() {
 
   const handleChagneInputValue = (e) => {
     setInputValue(e.target.value);
+    e.target.value?
+      setPostInputEmpty(false):
+      setPostInputEmpty(true);
   };
 
   return (
@@ -40,7 +63,7 @@ function App() {
         {/* <div className='list'>
           <h4>{posts[0]}</h4>
           <p>2023년 1월 20일</p>
-          <p>by wonah</p>
+          <p>by goni.kim</p>
         </div>
         <div className='list'>
           <h4>{posts[1]}</h4>
@@ -69,11 +92,11 @@ function App() {
         <button onClick={() => {
           // div 하나를 새로 생성 X
           // post state에 요소 하나 추가하면 자동으로 렌더링 O
-          const copyPost = [inputValue,...posts];
+          const copyPost = [{title: inputValue, date:'yymmdd', author:'guest'},...posts];
           setPosts(copyPost);
-          setInputValue('');
-          setPostInputEmpty(false);
-
+          setInputValue(''); // 입력하다가 다 빈 문자열이 되어도 버튼 다시 비활성화
+          setPostInputEmpty(true); // 포스트 등록하면 버튼 다시 비활성화
+          
           // (버그 수정) 포스트 하나 추가 시 좋아요 카운트도 같이 추가
           const copyLikeCount = [0, ...likeCount];
           setLikeCount(copyLikeCount);
