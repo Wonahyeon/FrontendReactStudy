@@ -13,17 +13,20 @@ const postData = [
   {
     title: '리액트를 잘 쓰려면?',
     date: '2023년 1월 20일',
-    author: 'goni.kim'
+    author: 'goni.kim',
+    likeCount: '300'
   },
   {
     title: '자바스크립트 핵심 문법',
     date: '2023년 1월 1일',
-    author: 'alice'
+    author: 'alice',
+    likeCount: '200'
   },
   {
     title: '스타일링 가이드',
     date: '2022년 12월 20일',
-    author: 'hero'
+    author: 'hero',
+    likeCount: '100'
   }
 ];
 
@@ -36,7 +39,7 @@ function App() {
   const [posts, setPosts] = useState(postData);
   const [showPostDetail, setShowPostDetail] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [likeCount, setLikeCount] = useState([0, 0, 0]); // 배열
+  const [likeCount, setLikeCount] = useState([postData[0].likeCount, postData[1].likeCount, postData[2].likeCount]); // 배열
   const [inputAuthor, setInputAuthor] = useState(''); // 포스트 작성자
   const [inputTitle, setInputTitle] = useState(''); // 포스트 제목
 

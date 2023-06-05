@@ -22,7 +22,7 @@ function PostDetail(props) {
         onClick={() => {
           setChangeTitle(true);
           const copyTitle = [...posts];
-          copyTitle[currentIndex].title = <input value={postTitle} onChange={handlePostTitle}/>;
+          copyTitle[currentIndex].title = <input type='text' value={postTitle} onChange={handlePostTitle}/>;
         }}>
         수정하기
       </button>
