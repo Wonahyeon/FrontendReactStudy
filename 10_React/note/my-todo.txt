@@ -1,0 +1,43 @@
+* 파일명 수정 시 경로 자동 수정 안됨 주의! 자동완성도 x VS 껐다가 켜
+
+* 패키지 설치
+npm install styled-components styled-reset react-icons
+
+styled-reset: reset css
+react-icons:
+  리액트에서 다양한 아이콘을 쓸 수 있는 라이브러리
+  SVG 형태의 아이콘을 리액트 컴포넌트처럼 쉽게 사용
+  커스텀은 props 또는 CSS 스타일로 변경 가능
+
+
+* 컴포넌트 구조
+App
+↘TodoTemplate
+  ↘TodoInsert
+    ↘TodoList
+      ↘TodoListItem
+
+
+[App]
+- 글로벌(공통) 스타일 적용과 reset css 적용
+-> createGlobalStyle 사용
+  컴포넌트가 만들어지고 이를 렌더링하면 됨
+
+[TodoTemplate]
+- 화면을 가운데 정렬하고, 앱 타이틀을 보여주는 컴포넌트
+-> children으로 내부 자식 엘리먼트들을 props로 받아와서 렌더링
+
+[TodoInsert]
+- 새로운 항목을 입력하고 추가할 수 있는 컴포넌트
+-> state를 통해 input의 상태를 관리 (제어 컴포넌트)
+
+* react-icons 라이브러리 사용
+
+[TodoListItem]
+- 각 할 일 항목에 대한 정보를 보여주는 컴포넌트
+-> todo 객체를 props로 받아와 상태에 다라 다른 스타일의 UI를 보여줌
+
+[TodoList]
+- todos 배열을 props로 받아와서 map() 함수를 사용해 여러 개의 TodoListItem 컴포넌트로 변환해 보여줌
+
+* props로 데이터 받아올때 구조 분해 할당하면 좋음
