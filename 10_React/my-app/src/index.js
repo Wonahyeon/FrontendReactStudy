@@ -45,6 +45,9 @@ import DialogContainer from './chapter13/13.1.2/DialogContainer';
 import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
 import DarkOrLight from './chapter14/DarkOrLight';
+import StyledPage from './chapter15/StyledPage';
+import ThemeApp from './chapter15/theme/ThemeApp';
+import ParentComponent from './chapter7/7.5/ParentComponent';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
 // TODO:툴 다시 껐다가 키면 해결
 
@@ -79,6 +82,7 @@ root.render(
   // <TimerContainer/>
   // <TextInputWithFocusButton/>
   // <ComponentVariable/>
+  <ParentComponent/>
 
   // 8장 예제
   // <Toggle/>
@@ -118,7 +122,11 @@ root.render(
   // <ProfileCard/>
 
   // 14장 예제
-  <DarkOrLight/>
+  // <DarkOrLight/>
+
+  // 15장 예제
+  // <StyledPage/>
+  // <ThemeApp/>
 );
 
 // 4장 예제
