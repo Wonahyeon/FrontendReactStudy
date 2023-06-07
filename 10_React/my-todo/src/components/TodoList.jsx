@@ -10,7 +10,7 @@ const TodoListWrapper = styled.div`
 
 function TodoList(props) {
   // const todos = props.todos;
-  const {todos} = props;
+  const {todos , onRemove, onToggle} = props;
   return (
     <TodoListWrapper>
       {/* <TodoListItem/>
@@ -18,7 +18,7 @@ function TodoList(props) {
       <TodoListItem/> */}
       {/* Quiz: TodoListItem으로 이루어진 배열로 변환하여 반복 렌더링 */}
       {todos.map(todo => (
-      <TodoListItem key={todo.id} todo={todo} />
+      <TodoListItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle}/>
       ))}
     </TodoListWrapper>
   );

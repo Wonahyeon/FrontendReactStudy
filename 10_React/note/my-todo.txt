@@ -41,3 +41,68 @@ App
 - todos 배열을 props로 받아와서 map() 함수를 사용해 여러 개의 TodoListItem 컴포넌트로 변환해 보여줌
 
 * props로 데이터 받아올때 구조 분해 할당하면 좋음
+
+#0607
+* 여러 줄 스타일
+   ${props => props.checked && 
+    css`
+      color:;
+      text-decoration:;
+    `
+   }
+
+[할 일 추가하는 기능]
+(TodoInsert)
+- input 입력값 state로 저장
+  -> input을 제어 컴포넌트로 만들기
+
+- (App.js)에서 props로 받아온 함수를 매개변수에 구조 분해 할당하면서 받아옴
+  function TodoInsert({onInsert}) {}
+
+
+(App.js)
+- 새 객체를 만들 때마다 id값에 1씩 더해줘야 하는데 useRef()를 사용하여 변수 생성
+  => useRef(): 단순히 새로운 값을 만들 때 참조되는 값
+
+ * state가 아닌 이유? id값은 렌더링 되는 정보가 아니기 때문(화면에 보이지도 않고, 이 값이 바뀐다고 해서 컴포넌트가 재렌더링 될 필요도 없음)
+
+- 할 일 추가하는 함수 handleInsert
+-> props로 전달해야 할 함수를 만들 때는 useCallback(() => {}, [])을 사용해본다!
+
+* 함수형 업데이트를 쓸 경우 의존성 제거 가능
+  함수형 업데이트 매개변수로 최신 이전 state를 받아옴
+
+-> state : (TodoInsert)에 input 입력값을 받아오는 value
+- 이를 text로 받음
+
+-> concat(): 기존 배열 변경X 새로운 배열을 반환
+  setTodos(todos => todos.concat(todo));
+
+-> (TodoInsert)에 props로 함수 전달
+  onInsert={handleInsert}
+
+
+[할 일 삭제하는 기능]
+(App.js)
+- 할 일 삭제하는 함수 handleRemove
+-> useCallback() 함수 인자로 이벤트 발생 시 선택된 id 받아서 사용
+  @방법1
+  선택된 todos의 id값의 index값으로 todos 배열에서 삭제
+  * findIndex(() => {}), 배열에서 요소 하나하나를 꺼내와서 함수를 돌아 true일 때 index값 반환
+  * splice(index, howMany)
+
+- 할 일 확인 기능
+-> useCallback()
+  함수 인자로 이벤트 발생 시 선택된 id 받아서 사용
+
+* form 태그 사용 시 input에서 엔터키 눌렀을때도 submit 이벤트 발생
+  -> form 태그 내 input 하나만 있을 때 사용 가능 
+
+  일반적으로 keyup 이벤트를 통해 엔터키를 감지하는 로직을 작성
+    let key = event.key;
+
+    if (key === "Enter") {
+      엔터키 클릭 시 동작할 코드;
+    }
+
+* random한 id값 사용하기 위한 패키지: uuid
