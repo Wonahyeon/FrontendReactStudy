@@ -48,6 +48,7 @@ import DarkOrLight from './chapter14/DarkOrLight';
 import StyledPage from './chapter15/StyledPage';
 import ThemeApp from './chapter15/theme/ThemeApp';
 import ParentComponent from './chapter7/7.5/ParentComponent';
+import SimpleRouter from './chapter16/SimpleRouter';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
 // TODO:툴 다시 껐다가 키면 해결
 
@@ -82,7 +83,7 @@ root.render(
   // <TimerContainer/>
   // <TextInputWithFocusButton/>
   // <ComponentVariable/>
-  <ParentComponent/>
+  // <ParentComponent/>
 
   // 8장 예제
   // <Toggle/>
@@ -127,6 +128,9 @@ root.render(
   // 15장 예제
   // <StyledPage/>
   // <ThemeApp/>
+
+  // 16장 예제
+  <SimpleRouter/>
 );
 
 // 4장 예제
