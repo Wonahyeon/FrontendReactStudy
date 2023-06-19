@@ -591,3 +591,14 @@ URL 파라미터는 주소의 경로에 유동적인 값을 넣는 형태고,
 URL 파라미터 예시: https://vibe.naver.com/album/9732422
 쿼리스트링 예시: /articles?page=1&keyword=react 또는 /list?sort=popular
 
+#0619
+* axios.get() => Promise 객체
+ -> .then() 사용 가능
+
+* json placeholder : 테스트용 API 제공
+ https://jsonplaceholder.typicode.com/
+
+TODO 
+- promise then, async await
+  ES6+\13_async_await
+- JSON.stringify() , textarea
