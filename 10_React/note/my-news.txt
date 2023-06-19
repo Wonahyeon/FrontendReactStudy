@@ -1,0 +1,34 @@
+뉴스 뷰어 만들기
+
+0. 패키지 설치
+npm install styled-components axios react-router-dom
+
+1. newsapi 키 발급받기
+아래 사이트 회원가입
+https://newsapi.org/
+
+API key
+ffd76309aaf147ebb6cadb338816d081
+
+2. 사용할 API = 한국 뉴스를 가져오는 API
+https://newsapi.org/s/south-korea-news-api
+1) 헤드라인 뉴스 불러오기
+2) 헤드라인 중 특정 카테고리 뉴스 불러오기
+
+[API 요청]
+- 첫 렌러링될 때만 요청
+  => 의존성 배열이 빈 배열인 useEffect 사용
+  - async/await 사용
+- 카테고리 뉴스 불러오기
+  => 기존 의존성 배열에 category 추가
+  * 이유: api 요청은 처음 렌더링, category 변경 시 발생해야하기 때문
+
+[NewsItem 반복 렌더링]
+- state articles 배열의 map() 함수
+  => return 필수
+  - 반복 렌더링 할 때 key 속성 필수(고유한 값)
+
+[카데고리 변경]
+- useParams 사용
+- NavLink 사용
+  to 속성에 적은 경로에 따라 active 상태를 알 수 있음
