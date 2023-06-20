@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+
 import JsxUse from './chapter3/3.4/JsxUse';
 import Library from './chapter3/Library';
 import Clock1 from './chapter4/Clock1';
@@ -50,6 +52,8 @@ import ThemeApp from './chapter15/theme/ThemeApp';
 import ParentComponent from './chapter7/7.5/ParentComponent';
 import SimpleRouter from './chapter16/SimpleRouter';
 import ApiRequest from './chapter17/ApiRequest';
+import CounterApp from './chapter18/CounterApp';
+import { store } from './chapter18/app/Store';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
 
 
@@ -133,7 +137,13 @@ root.render(
   // <SimpleRouter/>
 
   // 17장 예제
-  <ApiRequest/>
+  // <ApiRequest/>
+
+  // 18장 예제
+  // 2. 리액트에 Redux Store 제공하기
+  <Provider store={store}>
+    <CounterApp/>
+  </Provider>
 );
 
 // 4장 예제

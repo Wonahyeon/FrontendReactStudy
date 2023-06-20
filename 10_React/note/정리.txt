@@ -602,3 +602,116 @@ TODO
 - promise then, async await
   ES6+\13_async_await
 - JSON.stringify() , textarea
+
+#0620
+[Redux]
+- 전역 상태 관리 외부 라이브러리
+참고로 redux toolkit이라는 라이브러리를 설치할 건데 redux의 개선 버전임
+사용법(문법)이 좀 더 쉬워짐
+Redux 개발팀에서 Redux 표준은 RTK를 쓰라고 권장함
+
+- Redux Toolkit and React-Redux 설치하기
+npm install @reduxjs/toolkit react-redux
+
+? 만약에 카운터의 state가 여기저기 컴포넌트에서 공유가 필요하다면 어디에 만들어야할까?
+공통 부모에 만들고 props로 자식에게 전달해야 됨(state 끌어올리기)
+
+  => 근데 Redux를 사용하면 컴포넌트들이 props 없이 state 공유 가능 (Redux 쓰는 가장 큰 이유!)
+  => Context API는? 단순히 데이터를 공유해주는 기능이고 Redux는 공유 + 상태 관리가 용이
+
+- Redux Store라는 저장소에 state를 저장할 수 있음
+  =전역 상태 <=> 지역 상태: 리액트 컴포넌트에 직접 만든 state
+
+=> 컴포넌트들은 Redux Store에서 직접 state를 꺼내오면 됨
+  대규모 프로젝트에서는 거의 Redux 사용! (구인 시 대부분 Redux 요구)
+
+Q. Redux 쓰면 편한데 props 쓸 필요가 있을까?
+1) 외부 라이브러리 설치 필요
+2) 사용 설정을 위한 반복적인 준비 코드(문법)들이 필요(이런 코드를 보일러 플레이트**라 부름)
+근데 Redux 쓴다고 해서 모든 state들을 Redux Store 안에 넣는 것은 지양
+(자바스크립트에서도 모든 변수를 전역으로 쓰지 않음, 함수내에서만 쓰는 것은 지역 변수 활용)
+- 공유가 필요없는 state는 X
+- 간단히 끌어올려서 그 부분에서만 쓸 수 있는 state는 X
+
+(참고) **보일러 플레이트 코드
+- 기능을 수행하기 위해 많은 상용구 코드를 작성
+- 꼭 필요한 간단한 기능인데, 반복적인 코드를 필요로 하며, 이것이 중복되어 많은 양의 코드를 양산하는 것
+- 별 수정 없이 반복적으로 사용되는 코드, 소위 말하는 찍어내는 코드
+- Redux가 어려운 점은 이런 보일러 플레이트 코드의 작성이 매우 많음
+  => RTK로 넘어오면서 획기적으로 줄어듦
+
+* Redux Application Data Flow
+https://ko.redux.js.org/tutorials/essentials/part-1-overview-concepts#redux-application-data-flow
+
+[Redux 사용법]
+1. Redux Store 만들기
+  - 전역 state를 보관하는 저장소
+  - createStore() : deprecated
+  - configureStore()를 쓰면 Redux DevTools 설정이 자동으로 추가됨
+    (Redux DevTools는 크롬 웹 스토어에서 따로 설치)
+    -> store라는 변수에 담아서 export
+
+(참고)
+- 한 개의 프로젝트는 단 하나의 스토어만 가질 수 있음
+- Store 안에는 현재 전역 상태와 리듀서가 들어가 있음
+
+2. 리액트에 Redux Store 제공하기
+- <Provider store={store}></Provider>
+  -> export된 store import해서 받아오기
+- CounterApp 컴포넌트와 그 하위 자식들은 Redux Store에 접근 가능
+- Redux Store에 저장된 state들을 마음대로 꺼내 쓸 수 있음
+
+3. Redux State Slice 만들기
+- state 초기값으로 원시값, 배열, 객체 등 모든 데이터 타입 사용 가능
+- 주로 객체 형태로 사용함(가독성이 좋고 state 관리 및 변경이 편함)
+
+* 전역 state를 만드는 방법
+- useState()랑 비슷한 역할을 하는데 Redux에서는 state 하나를 slice라고 부름
+  -> createSlice() 함수: state 이름, 초기값 설정, 액션 및 리듀서 함수를 만드는 것을 도와줌
+  -> 인자값으로 name, initialState, reducers 속성을 갖는 객체를 넣음
+  - name : state이름(추가로 action 이름을 만드는데도 쓰임)
+    -> 현재 state와 action 객체를 파라미터로 받아오고 필요한 경우 상태를 업데이트하고 새 상태를 반환하는 함수
+
+  - initialState : state 초기값(위에서 객체 형태로 정의)
+
+  - reducers : state를 변경하는 함수(reducer)들을 정의하고 관련 action을 생성
+    -> 객체 형태 key-value(함수)
+
+  4. Redux Store에 slice Reducers를 추가하기
+  - ★slice Reducers를 Store에 등록★을 해야 컴포넌트들이 전역 state를 사용 가능
+
+  5. 리액트 컴포넌트에서 Redux Store와 Actions 사용하기
+  - useSelector() : Redux Store에 있는 state를 가져오는 함수
+  - useDispatch() : Redux Store에 요청을 보내주는 함수
+
+  * 전역 상태를 업데이트하는 유일한 방법
+  - dispatch() 함수 : action 객체 -> store
+    store: 해당 action에 매칭되는 reducer 함수 실행시켜 새로운 상태 만들어줌
+  - decremnt() 함수 : action (객체) 생성 함수
+   - 함수 이름은 작명
+   - 함수 실행 결과 
+   - 파라미터 2개
+    -> 첫번째 파라미터: 현재 state 받아옴
+    -> 두번째 파라미터: action 객체 { type: 발생한 액션의 타입, payload: 전달한 데이터}
+
+  => action 생성 함수
+    - state 직접 수정하는 형태로 작성
+    How ? Immer 라이브러리가 내장되어 불변성 관리
+          실제로는 상태를 직접 변경하지 않고 내부적으로 state 복사본 만들어서 그 복사본 변경하고 새로운 상태를 반환함
+    - 각 reducer에 대한 action 생성 함수들이 객체 형태로 들어있음
+    - action 생성 함수를 사용하면 해당 action 객체가 만들어짐
+
+  * Redux의 state를 변경하려면..?
+  1) state 변경 함수(reducer) 만들기
+  2) 다른데서 사용할 수 있게 export
+    => 전역 state, state.actions의 각 reducer함수들, 정의한 reducer 함수들
+  3) 수정을 원할 때 그 함수를 실행해달라고 store에 요청 해야됨
+    => dispatch() 함수를 사용해서 store에 action을 보냄
+
+* component만 대문자, slice 소문자로
+* slice 생성 후 Redux store에 slice Reducer 추가해야함!
+* slice 생성해주는 곳에서 선택자 함수 미리 만들어 export 시키면 좋음
+  단순 state 데이터 받아서 사용하기 + 가공해서 사용하기
+  => useSelector 매개변수가 함수가 아닌 변수로 사용하면 됨(리팩터링)
+
+TODO 상품 수정/삭제
