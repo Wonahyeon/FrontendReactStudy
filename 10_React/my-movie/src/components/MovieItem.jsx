@@ -2,14 +2,14 @@ import React from 'react';
 import styled from "styled-components";
 
 const MovieItemBlock = styled.div`
-  display: flex;
 `;
 
 function MovieItem({movie}) {
-  const {movieNm, prdtYear,typeNm, genreAlt} = movie;
+  const {movieNm, openDt} = movie;
   return (
     <MovieItemBlock>
-      
+      <h2>{movieNm}</h2>
+      <p>{openDt}</p>
     </MovieItemBlock>
   );
 }

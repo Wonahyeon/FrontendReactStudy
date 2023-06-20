@@ -51,7 +51,6 @@ import ParentComponent from './chapter7/7.5/ParentComponent';
 import SimpleRouter from './chapter16/SimpleRouter';
 import ApiRequest from './chapter17/ApiRequest';
 // import Clock from './chapter4/clock'; // Clock 이 아니라 clock으로 오류
-// TODO:툴 다시 껐다가 키면 해결
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
