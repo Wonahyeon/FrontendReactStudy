@@ -1,39 +1,74 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct, deleteProduct, selectProductList } from "./productSlice";
+import styled from "styled-components";
+import { addProduct, deleteProduct, modifyProduct, selectProductList } from "./productSlice";
 
+const ProductListBlock = styled.div`
+  display: flex;
+  li {
+    width: 10.3rem;
+  }
+`;
 
 function ProductList(props) {
-  const product = useSelector(selectProductList);
   const dispatch = useDispatch();
+   // const productList = useSelector(state => state.product.productList);
+  const productList = useSelector(selectProductList);
 
   const [productName, setProductName] = useState('');
+
+  const handleAddProduct = () => {
+    if (productName) {
+      dispatch(addProduct(productName));
+      setProductName('');
+    
+    }
+  }
 
 
   return (
     <div>
-      <label>
+      <p>
         상품:
         <input
           type="text"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.key === 'Enter') {
+              handleAddProduct();
+            }
+          }}
         />
-      </label>
       <button
         type="button"
-        onClick={() => dispatch(addProduct(productName))}
-      >
+        onClick={handleAddProduct}
+        >
         추가
       </button>
-      <button
-        type="button"
-        onClick={() => dispatch(deleteProduct(productName))}
-      >
-        삭제
-      </button>
+    </p>
       <ul>
-        {product.map((product) => <li key={product.id}>{product.name}</li>)}
+        {productList &&
+          productList.map((product) => {
+            return (
+            <ProductListBlock>
+              <li key={product.id}>{product.name}
+              </li>
+              <button
+                type='button'
+                onClick={() => dispatch(modifyProduct(product))}
+              >
+                수정
+              </button>
+              <button
+                type='button'
+                onClick={() => dispatch(deleteProduct(product))}
+              >
+                삭제
+              </button>
+            </ProductListBlock> 
+            );
+          })}
       </ul>
     </div>
   );
