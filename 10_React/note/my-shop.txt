@@ -1,0 +1,46 @@
+쇼핑몰 만들기
+
+# Bootstrap
+레이아웃을 복사 붙여넣기 식으로 편하게 개발 가능한 css, js 라이브러리
+리액트 용이 따로 있는데 나는 기존것이 더 익숙하다 싶으면 기존 Bootstrap을 써도 무관
+https://react-bootstrap.netlify.app/
+=> import 'bootstrap/dist/css/bootstrap.min.css'; 해야 css 사용 가능
+
+- 부트스트랩 사용 방법 -> import 필수! from 'react-bootstrap
+1) 리액트 부트스트랩
+<Button variant="primary">Primary</Button>
+
+2) 기존 부트스트랩
+<Button type="button" className="btn btn-primary">Primary</Button>
+
+
+# 패키지 설치하기
+npm install react-bootstrap bootstrap styled-components@5.3.11 react-router-dom @reduxjs/toolkit react-redux axios
+
+# 기본 라우팅 설정 
+<BrowserRounter>\<Routes>\<Route path= element={<component/>}/>
+- Outlet : Nested Route의 자식 엘리먼트 보여주는 역할 src/pages/Header.js
+- <Route index element={component}/> 에서 index : index route(default child route)
+
+# 부트스트랩을 이용한 반응형 작업
+<Col md={4}> 768px 이상에서 전체 12등분중 4:4:4 로 보여줌
+
+[상품별 상세페이지 여러 개 라우팅]
+URL 파라미터 사용 :
+- 보내기 
+  -> /detail/1 로 접속하면 productId에 1이 담김
+  => /detail/:productId
+- 가져오기
+  => useParams(); 객체 반환
+
+* 이동 경로 설정
+useNavigate()
+
+* 숫자 포맷
+Intl
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl
+
+* Alert 창
+- Alert을 띄우고 3초 뒤에 사라지게 만들기
+- const timer = setTimeout(() => {},3000)
+  -> 불필요하게 타이머가 계속 생기는 것을 정리해야함 : return () => {clearTimeout(timer)}
