@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from "axios";
+import { PulseLoader } from "react-spinners";
 
 // 리액트(JS)에서 이미지 파일 import 하는 방법
 import yonexImg from "../images/yonex.jpg";
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts, selectProductList } from '../features/product/productSlice';
+import { getAllProducts, getMoreProducts, getMoreProductsAsync, selectProductList, selectStatus } from '../features/product/productSlice';
 import ProductListItem from '../components/ProductListItem';
+import { getProducts } from '../api/productAPI';
 
 const MainBackground = styled.div`
   height: 500px;
@@ -22,6 +25,9 @@ const MainBackground = styled.div`
 function Main(props) {
   const dispatch = useDispatch();
   const productList = useSelector(selectProductList);
+  const status = useSelector(selectStatus); // API 요청 상태(로딩 상태)
+
+
   // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
   useEffect(() => {
@@ -31,6 +37,17 @@ function Main(props) {
 
   }, []);
 
+  const handleGetMoreProducts = async () => {
+    const result = await getProducts();
+    if (!result) return; // 결과값이 없으면 함수 종료
+
+    dispatch(getMoreProducts(result));
+  };
+
+  const handleGetMoreProductsAsync = () => {
+    dispatch(getMoreProductsAsync());
+  };
+
   return (
     <>
       {/* 메인 이미지 섹션 */}
@@ -39,7 +56,7 @@ function Main(props) {
         {/* <img src={yonexImg} /> */}
       </section>
 
-      {/* 상품 목록 레이웃 섹션 */}
+      {/* 상품 목록 레이아웃 섹션 */}
       <section>
         <Container>
           <Row>
@@ -51,8 +68,45 @@ function Main(props) {
             {productList.map( product =>
               <ProductListItem product={product} key={product.id}/>
             )}
+
+            {/* 로딩 */}
+            {status === 'loading' &&
+              <div>
+                <PulseLoader
+                  color='#36d7b7'
+                  margin={50}
+                  size={30}
+                />
+              </div>
+            }
           </Row>
         </Container>
+
+        {/*  상품 더보기 버튼 */}
+        <Button variant='secondary' className='mb-4'
+          onClick={() => {
+            axios.get('https://my-json-server.typicode.com/Wonahyeon/db-shop/products')
+              .then((response) => {
+                // console.log(response.data);
+                dispatch(getMoreProducts(response.data));
+              })
+              .catch((error) =>
+                console.error(error)
+              );
+          }}
+        >
+          더보기
+        </Button>
+
+        {/* 위 HTTP 요청 코드를 함수로 만들어서 api폴더로 추출하고, async/await로 바꾸기 */}
+        <Button variant='secondary' className='mb-4' onClick={handleGetMoreProducts}>
+          더보기
+        </Button>
+
+        {/* thunk를 이용한 비동기 작업 처리하기 */}
+        <Button variant='secondary' className='mb-4' onClick={handleGetMoreProductsAsync}>
+          더보기 {status}
+        </Button>
       </section>
     </>
   );

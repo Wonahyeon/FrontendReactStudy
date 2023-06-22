@@ -1,5 +1,6 @@
 쇼핑몰 만들기
 
+#0621
 # Bootstrap
 레이아웃을 복사 붙여넣기 식으로 편하게 개발 가능한 css, js 라이브러리
 리액트 용이 따로 있는데 나는 기존것이 더 익숙하다 싶으면 기존 Bootstrap을 써도 무관
@@ -12,6 +13,7 @@ https://react-bootstrap.netlify.app/
 
 2) 기존 부트스트랩
 <Button type="button" className="btn btn-primary">Primary</Button>
+
 
 
 # 패키지 설치하기
@@ -36,11 +38,134 @@ URL 파라미터 사용 :
 * 이동 경로 설정
 useNavigate()
 
-* 숫자 포맷
+[숫자 포맷]
 Intl
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl
 
-* Alert 창
+#0622
+[Alert 창]
 - Alert을 띄우고 3초 뒤에 사라지게 만들기
 - const timer = setTimeout(() => {},3000)
   -> 불필요하게 타이머가 계속 생기는 것을 정리해야함 : return () => {clearTimeout(timer)}
+
+* styled-components animation
+  keyframes`
+    from {}
+    to {}
+  `
+  from 0%, to 100%
+
+  => animation 정의 후 변수에 담아 필요한 컴포넌트 animation 속성으로 적용
+
+[주문 수량 입력 받기]
+  제어 컴포넌트
+  사용자 입력 받는 태그들
+  type이 number여도 string형으로 반환되기 때문에
+  - 유효성 검사(숫자형만)
+    isNaN으로 걸러야
+
+  - 입력 받은 값을 number형으로 사용하려면 형변환해야함
+
+* 유효성 검사 위배시 toast popup
+  react-toastify 라이브러리 사용
+  npm install --save react-toastify
+
+  => import 'react-toastify/dist/ReactToastify.min.css'; 해야 CSS 사용 가능
+
+  Toast Container -> import {ToastContainer} from 'react-toastify';
+  <ToastContainer></ToastContainer>
+
+  Toast Emiiter -> import { toast } from 'react-toastify';
+  toast()
+
+[상품 더보기]
+가짜(Fake) API 서버 만들기
+실무와 비슷한 느낌으로 하기 위해 가짜(Fake) API 서버를 만들거임
+
+1. json-server (혼자 CRUD 연습하기 좋음)
+이 도구를 사용하면 json 파일 하나만 있으면 로컬에 연습용 서버를 쉽게 구성 할 수 있음
+(즉, 사용하려는 컴퓨터에서 매번 로컬 서버를 띄워야 함)
+
+json-server 사용법
+./src/data2.json 이라는 파일을 작성
+npx json-server ./src/data2.json --port 4000
+또는 
+npm i -g json-server
+json-server --watch ./src/data2.json --port 4000
+
+더 자세한 사용법 참고
+https://github.com/typicode/json-server
+https://redux-advanced.vlpt.us/3/01.html
+
+2. My JSON Server (Read만 가능)
+이 서비스를 사용하면 GitHub와 연동하여 연습용 서버를 쉽게 구성 할 수 있음
+
+My JSON Server 사용법
+GitHub에 저장소 생성(<your-username>/<your-repo>)
+db.json파일 만들기
+서버에 액세스하려면 https://my-json-server.typicode.com/<your-username>/<your-repo>를 방문
+
+=> https://my-json-server.typicode.com/Wonahyeon/db-shop
+=> https://my-json-server.typicode.com/Wonahyeon/db-shop/products
+
+* redux store productList에 추가
+1) redux reducer 만들기
+  productslice에서 getMoreProducts reducer 추가
+
+2) dispatch(getMoreProducts()) redux reducer 가져와서 사용
+
+* push(배열 요소 꺼내와서 사용)
+배열 풀어서 가져와야함
+
+* async/await
+try/catch
+  => try에 에러 발생 가능한 코드 작성(api 요청)
+  => catch : error
+    -> 서버가 죽었거나, 인터넷이 끊겼거나, URL이 잘못됐을 때 등
+
+* axios 
+- Promise API를 활용하는 HTTP 비동기 통신 라이브러리
+- get/post 방식 사용하여 반환값은 promise 객체
+  {data: [{...},{...},...], status: 200, statusText:'' }
+=> 데이터를 가져오려면 .data
+
+(참고) 서버에 데이터 요청
+my-app/src/chapter17/ApiRequest.jsx 설명
+
+* thunk를 이용한 비동기 작업 처리하기 -> features/product/productSlice.js
+- thunk 미들웨어: 액션을 디스패치 했을 때 리듀서에서 이를 처리하기에 앞서 사전에 지정된 작업을 실행
+- 액션과 리듀서 중간에 끼어있는 중간자 역할, 액션 -> (미들웨어) -> 리듀서
+- 주로 API 요청 같은 비동기 작업을 수행함
+
+- thunk를 이용한 비동기 작업 처리 시 이점? 
+1) API 요청에 대한 상태 관리 쉽게 가능(요청 시작-로딩중, 요청 성공 또는 실패 시 로딩이 끝났음을 명시)
+2) 요청이 성공하면 응답에 대한 상태 관리, 실패하면 에러에 대한 상태 관리 등에 용이
+
+* createAsyncThunk() 함수를 이용하여 비동기 작업을 처리하는 액션 생성 함수를 만듦
+  - 첫번째 인자값: action type(개발자 임의로 작성)
+  - 두번째 인자값: action 발생했을 때 실행할 비동기 작업(api 요청 같은)
+    비동기 함수 실행 시 pending 상태
+    return 꼭! fulfiled 상태로 바뀌고 action.payload에 담겨 리듀서 함수로 전달
+    => thunk를 이용한 비동기적인 작업 시extraReducers 사용
+      
+    (참고)
+    reducers로 동기 작업을 할 때는 액션 생성 함수를 자동으로 만들어주는 반면
+    extraReducers로 비동기 작업을 할 때는 액션 생성 함수를 자동으로 만들지 못함
+
+  * extraReducers
+    - 매개변수 builder
+    - builder.addCase()로 상태(pending, fulfiled, rejected)별로 동작할 리듀서 함수 추가
+
+* 로딩
+- api pending 시 로딩 시 로딩창
+  react-spinners 라이브러리 사용
+
+[상세 페이지내 탭 UI 만들기]
+- <Nav></Nav> bootstrap 사용
+  -> defaultActiveKey : 기본으로 active할 탭
+- 탭 상태에 따라 UI 변경
+  -> 탭의 내용을 다 만들어 놓고 조건부 렌더링하면 됨
+  1) 삼항 연산자 사용(비효율적)
+  2) 컴포넌트 추출
+    컴포넌트에 탭 상태 별로 컴포넌트 반환 데이터 변경 -> TabContents.js
+  3) 배열이나 객체 형태로 만들어서 조건부 렌더링(편법) -> 객체형태는 키 값을 변수로 받아 사용하려면 변수도 state로 만들어줘야함, tab클릭 시 각 해당하는 key값으로 변경되도록 set함수 이용하여
