@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Form, Nav, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Alert, Button, Col, Container, Form, Modal, Nav, Row } from 'react-bootstrap';
+import { json, useNavigate, useParams } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSelectedProducts, selectSelectedProduct } from '../features/product/productSlice';
+import { clearSelectedProduct, getSelectedProducts, selectSelectedProduct } from '../features/product/productSlice';
 import { toast } from 'react-toastify';
 import TabContents from '../components/TabContents';
+import { addItemToCart } from '../features/cart/cartSlice';
 
 // 스타일드 컴포넌트를 이용한 애니메이션 속성 적용
 const highlight = keyframes`
@@ -31,7 +32,11 @@ function ProductDetail(props) {
   const [showInfo, setShowInfo] = useState(true); // info Alert창 상태
   const [orderCount, setOrderCount] = useState(1); // 주문 수량
   const [showTabIndex, setShowTabIndex] = useState(0); // 탭 상태
-  const [showTab, setShowTab] = useState('detail');
+  const [showTab, setShowTab] = useState('detail'); // 탭 상태
+  const [showModal, setShowModal] = useState(false); // 모달 상태
+  const handleClose = () => setShowModal(false);
+  const handleOpen = () => setShowModal(true);
+  const navigate = useNavigate();
 
   // 숫자 포맷 적용
   const formatter = new Intl.NumberFormat('ko-KR',{ style:'currency', currency:'KRW' } );
@@ -47,7 +52,19 @@ function ProductDetail(props) {
     });
     if (!foundProduct) return;
     dispatch(getSelectedProducts(foundProduct));
-  });
+
+    // 최근 본 상품
+    let latestViewed = JSON.parse(localStorage.getItem('latestViewed')) || []; // 처음에 null이니까 기본값으로 빈배열 넣어줌
+    latestViewed.push(productId);
+    latestViewed = new Set(latestViewed); // 중복 요소 제거
+    latestViewed = [...latestViewed];
+    localStorage.setItem('latestViewed', JSON.stringify(latestViewed));
+
+    // 상세 페이지가 언마운트 될 때 전역 상태 초기화
+    return () => {
+      dispatch(clearSelectedProduct());
+    }
+  },[]);
     
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -97,6 +114,17 @@ function ProductDetail(props) {
           </Col>
 
           <Button variant='primary'>주문하기</Button>
+
+          <Button variant='warning'
+            onClick={() => {dispatch(addItemToCart({ 
+                ...selectedProduct,
+                count: orderCount
+              }));
+              handleOpen();
+            }}
+          >
+            장바구니
+          </Button>
         </Col>
       </Row>
 
@@ -155,6 +183,23 @@ function ProductDetail(props) {
           'exchange' : <div>탭 내용4</div>
         }[showTab]
       }
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>SHOP 알림</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          장바구니에 상품을 담았습니다. <br/>
+          장바구니로 이동하시겠습니까?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            취소
+          </Button>
+          <Button variant="primary" onClick={() => { navigate("/cart"); }}>
+            확인
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }

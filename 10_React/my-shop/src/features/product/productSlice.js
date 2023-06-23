@@ -31,6 +31,9 @@ const productSlice = createSlice({
     getMoreProducts: (state, action) => {
       // console.log(action.payload);
       state.productList.push(...action.payload);
+    },
+    clearSelectedProduct: (state) => {
+      state.selectedProduct = null;
     }
   },
   extraReducers: (builder) => {
@@ -48,7 +51,7 @@ const productSlice = createSlice({
   }
 });
 
-export const {getAllProducts, getSelectedProducts, getMoreProducts} = productSlice.actions;
+export const {getAllProducts, getSelectedProducts, getMoreProducts, clearSelectedProduct} = productSlice.actions;
 
 export const selectProductList = (state) => state.product.productList;
 export const selectSelectedProduct = (state) => state.product.selectedProduct;
